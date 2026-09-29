@@ -2,17 +2,17 @@
 
 ## Purpose
 
-This document fixes the experimental rules for the first Quant Market Lab II forecasting study before the forecasting model is implemented. The purpose is to prevent accidental look-ahead bias, make later evaluation auditable, and separate research decisions made before observing future outcomes from conclusions drawn afterward.
+I am fixing the experimental rules for the first Quant Market Lab II forecasting study before I implement the forecasting model. I want the development history to show what I decided before observing later outcomes, so that I can identify look-ahead bias, avoid redesigning the experiment after seeing results, and evaluate the forecasts honestly.
 
 ## 1. Information cutoff
 
-The frozen information cutoff for the first experiment is:
+For my first experiment, I freeze the information set at:
 
 **31 August 2026**
 
-Any model described as an August-cutoff prospective model must use only information available on or before this date.
+When I describe a model as an August-cutoff prospective model, I will use only information that was available on or before this date.
 
-This restriction applies to:
+I apply this restriction to:
 
 - raw observations
 - engineered features
@@ -22,95 +22,95 @@ This restriction applies to:
 - model selection
 - baseline selection
 - uncertainty estimation
-- any diagnostic used to revise the frozen model
+- diagnostics that could influence the frozen model
 
-Data observed after 31 August 2026 may be used only for later evaluation, unless a new model version is created with a later, explicitly documented cutoff.
+I will use data observed after 31 August 2026 only for later evaluation, unless I create a new model version with a later and explicitly documented information cutoff.
 
-## 2. Leakage rule
+## 2. How I define leakage
 
-For a forecast origin t, every predictor supplied to the model must be measurable using information available at or before t.
+For a forecast origin t, I require every predictor supplied to the model to be measurable using information available at or before t.
 
-If a feature at time t depends on observations from t+1 or later, then that feature is retrospective and cannot be used in the prospective forecasting pipeline.
+If a feature at time t depends on observations from t+1 or later, I will treat that feature as retrospective and will not use it in the prospective forecasting pipeline.
 
-Examples of disallowed leakage include:
+In particular, I will not:
 
-- centering or scaling with statistics computed from the full dataset
-- choosing a filtering parameter after inspecting future outcomes
-- using a forward-looking rolling window
-- using a symmetric smoother whose value at t depends on future observations
-- revising a stored forecast after the realized outcome becomes known
+- center or scale using statistics computed from the full dataset
+- choose a filtering parameter after inspecting future outcomes
+- use a forward-looking rolling window
+- use a symmetric smoother whose value at t depends on future observations
+- revise a stored forecast after the realized outcome becomes known
 
-A transformation may still be useful for retrospective visualization, but it must be labelled separately from the live forecasting feature set.
+I may still use a transformation like this for retrospective visualization or explanation, but I will label it separately from the live forecasting feature set.
 
-## 3. Causal signal-processing requirement
+## 3. How I will use signal processing prospectively
 
-Signal-processing features used in a prospective model must be causal or otherwise constructed strictly from the historical information set available at the forecast origin.
+When I use signal-processing features in a prospective model, I will require them to be causal or otherwise constructed strictly from the historical information available at the forecast origin.
 
-For example, a one-sided filter may be admissible if its output at time t depends only on observations up to t. A forward-backward filter or other two-sided smoother is not admissible for live prospective feature construction because it uses future values implicitly.
+For example, I may use a one-sided filter if its value at time t depends only on observations up to t. I will not use a forward-backward filter or another two-sided smoother as a live forecasting feature because it uses future observations implicitly.
 
-Frequency-domain analysis may be used to study historical periodic structure, but any forecast feature derived from it must be recomputed using only the training window available at that historical forecast origin.
+I may use frequency-domain analysis to study historical periodic structure. If I derive a forecasting feature from that analysis, I will recompute it using only the training window available at each historical forecast origin.
 
 ## 4. Historical validation design
 
-Model comparison will be chronological.
+I will compare models chronologically rather than by randomly shuffling time-series observations.
 
-The preferred design is rolling-origin or expanding-window validation:
+My preferred design is rolling-origin or expanding-window validation. At each historical forecast origin, I will:
 
-1. choose a historical training window ending at time t;
-2. fit all learned preprocessing only on that training window;
-3. fit the candidate model on the same information set;
+1. choose a training window ending at time t;
+2. fit every learned preprocessing step only on that training window;
+3. fit the candidate model using the same information set;
 4. forecast the predefined future target;
-5. move the forecast origin forward and repeat;
-6. aggregate errors only after all historical forecasts have been generated.
+5. move the forecast origin forward and repeat the procedure;
+6. aggregate forecast errors only after I have generated the historical sequence of out-of-sample predictions.
 
-Random train-test shuffling will not be used for the main time-series forecasting comparison.
+I will not use random train-test shuffling for the main forecasting comparison.
 
-The exact first training date, refit frequency, forecast horizon, and minimum training length will be fixed when the primary target is selected.
+I will fix the exact first training date, refit frequency, forecast horizon, and minimum training length after I select the primary target.
 
-## 5. Primary target decision
+## 5. How I will choose the primary target
 
-The primary forecasting target is intentionally not fixed in this protocol yet.
+I am intentionally leaving the primary forecasting target open at this stage.
 
-The next research decision will compare a small number of defensible forward risk targets, most likely:
+My next research decision will compare a small number of defensible forward risk targets, most likely:
 
 - 5-trading-day realized volatility
 - 20-trading-day realized volatility
 
-The chosen target must be defined mathematically before the first model comparison is run. The choice will be justified using interpretability, sample size, forecast horizon, and relevance to the prospective October-December evaluation.
+I will define the chosen target mathematically before I run the first model comparison. I will justify the choice using interpretability, sample size, forecast horizon, and relevance to the prospective October-December evaluation.
 
-Once chosen for the frozen v0.1 experiment, the primary target will not be changed merely because another target gives better results.
+Once I choose the primary target for the frozen v0.1 experiment, I will not change it merely because another target later produces better results.
 
-## 6. Baseline requirement
+## 6. Baselines I will require
 
-Every signal-processing or time-series model must be compared with simple baselines.
+I will compare every signal-processing or time-series model with simple baselines.
 
 Candidate baselines include:
 
-- persistence or last observed risk estimate
+- persistence or the last observed risk estimate
 - rolling historical volatility
-- constant historical mean risk estimate
+- a constant historical mean risk estimate
 
-The exact baseline definitions must use the same forecast origin and information set as the candidate model.
+I will define each baseline using the same forecast origin and information set as the candidate model.
 
-A more complicated method will not be considered useful merely because it fits historical data better. Its value must be assessed through chronological out-of-sample performance, interpretability, or a clearly stated complementary diagnostic.
+I will not treat a more complicated method as useful merely because it fits historical data better. I will look for chronological out-of-sample improvement, interpretable additional information, or another clearly justified diagnostic.
 
-## 7. September 2026 status
+## 7. How I will treat September 2026
 
-September 2026 is not a genuinely untouched future period for this project because development began after September had already started and part of the month was observable.
+I do not consider September 2026 a genuinely untouched future period for this project because I began development after September had already started and part of the month was observable.
 
-Therefore September results must be labelled as one of the following, depending on the exact experiment:
+Depending on the exact experiment, I will therefore describe September as:
 
 - retrospective evaluation
 - holdout-style evaluation
 - pseudo-out-of-sample evaluation
 
-They must not be described as forecasts made before September began.
+I will not describe September results as forecasts made before September began.
 
-## 8. October-December prospective record
+## 8. How I will preserve October-December prospective forecasts
 
-Forecasts intended to count as genuinely prospective must be created and committed before the corresponding evaluation period is observed.
+For a forecast to count as genuinely prospective, I will create and commit it before the corresponding evaluation period is observed.
 
-For each frozen forecast version, the repository should record:
+For each frozen forecast version, I will record:
 
 - forecast creation date
 - information cutoff
@@ -121,31 +121,31 @@ For each frozen forecast version, the repository should record:
 - point forecast
 - uncertainty interval or dispersion measure, when available
 
-The original committed forecast values should remain unchanged after the outcomes become known. Later model improvements must produce new versioned forecast files rather than overwrite the original research record.
+After an outcome becomes known, I will leave the original committed forecast unchanged. If I improve the model later, I will create a new versioned forecast file rather than overwrite the original research record.
 
-## 9. Model-version rule
+## 9. How I will version model changes
 
-If the method is changed after observing later data, the new method must receive a new version and a new stated information cutoff.
+If I change the method after observing later data, I will assign the new method a new version and a new stated information cutoff.
 
-For example, a wavelet or state-space extension developed after October begins may still be evaluated historically, but it cannot be described as an August-cutoff October forecast unless that exact method and forecast had already been frozen before October data were observed.
+For example, if I develop a wavelet or state-space extension after October begins, I may still evaluate that extension historically. I will not describe it as an August-cutoff October forecast unless that exact method and forecast had already been frozen before October data were observed.
 
-## 10. Evaluation metrics
+## 10. How I will evaluate forecasts
 
-The primary metrics will be chosen to match the final target, with likely candidates including:
+I will choose metrics that match the final target. Likely candidates include:
 
 - mean absolute error
 - root mean squared error
 - relative error versus baseline
-- interval coverage, if predictive intervals are produced
+- interval coverage, if I produce predictive intervals
 - forecast stability across historical folds
 
-Model comparison will use the same realized target dates wherever possible.
+Wherever possible, I will compare models on the same realized target dates so that the comparison is fair.
 
-## 11. Reproducibility record
+## 11. How I will preserve the development record
 
-Each major research stage should be represented by a separate Git commit with a descriptive message. The repository history should show the real development sequence rather than a reconstructed or backdated sequence.
+I will represent each major research stage with a separate Git commit and a descriptive message. I want the repository history to show the real development sequence rather than a reconstructed or backdated one.
 
-At minimum, the project should preserve separate stages for:
+At minimum, I plan to preserve separate stages for:
 
 1. research scope
 2. protocol and leakage rules
@@ -159,8 +159,8 @@ At minimum, the project should preserve separate stages for:
 
 ## 12. Interpretation standard
 
-A negative result is acceptable.
+I will treat a negative result as a valid result.
 
-If the signal-processing method does not outperform a simple baseline, the result should be reported directly. The research question is whether the method adds evidence of forecasting value under a controlled prospective design, not whether the project can be made to produce a positive result.
+If the signal-processing method does not outperform a simple baseline, I will report that directly. My research question is whether the method adds evidence of forecasting value under a controlled prospective design, not whether I can force the project to produce a positive result.
 
-This protocol is part of the research record and may be extended later. Any later change that materially affects the experiment should be documented explicitly rather than silently replacing the original rule.
+I may extend this protocol later as the project develops. If I make a change that materially affects the experiment, I will document that change explicitly rather than silently replacing the original rule.

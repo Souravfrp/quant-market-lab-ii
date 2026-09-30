@@ -110,6 +110,14 @@ python -m src.plot_risk_comparisons
 
 The reconstruction writes to `results/figures/rebuilt/`. The three selected figures above retain their approved layouts. This command checks the plotted data; it is not a full independent validation of the forecasting experiment.
 
+### Published October–December forecasts
+
+![October–December forecasts using the August 31 information cutoff](results/figures/october_december_forecasts.png)
+
+I show the nine stored predictions for the first five scheduled sessions of October, November and December. All use the same August 31 cutoff. Each point is a predicted daily RMS over its labelled five-session window, not a daily path, price direction or whole-month risk. Actual outcomes are pending as of September 30, 2026. The rolling baseline repeats because its information window is fixed; the direct Ridge and constant models use gap-specific training labels.
+
+I reproduce this figure with `python -m src.plot_future_forecasts`. The script reads the preserved forecast CSV, checks the nine rows and their cutoffs and windows, and plots the stored values without refitting. Calendar and method sources are listed in [references](docs/references.md).
+
 ### A separate monthly-update experiment
 
 The existing October–December forecast record uses the fixed August 31 cutoff. A proposed monthly-update experiment would refresh the information cutoff each month and predict the next five sessions at gap zero. I have not generated that new experiment here. Its outputs must be recorded separately with their actual creation times, without rewriting the frozen release.

@@ -10,7 +10,7 @@ The initial question is:
 
 > **Using only information available through 31 August 2026, can a small set of signal-processing and time-series methods improve prospective market-risk forecasts relative to simple historical baselines?**
 
-The first version is intentionally compact. I will define one primary forecasting target, establish simple baselines, add one principled signal-processing representation, validate chronologically, and preserve the prospective forecasts before the corresponding future periods are observed.
+My first release preserves a compact baseline experiment: five-day SPY return RMS forecasts at four fixed lead times, using my existing Ridge approach and two simple baselines. I will add the signal-processing representation as a separate version after this forecast record is preserved.
 
 ## Relationship to Quant AI Market Lab
 
@@ -39,7 +39,7 @@ I will begin with market series already motivated by the first project, includin
 
 ### 2. Forecasting target
 
-The first release will define one primary target before the frozen prospective model is finalized. Candidate targets include short- or medium-horizon realized volatility or another observable forward risk measure derived from future returns.
+I forecast the RMS of daily SPY log returns over the first five scheduled trading sessions of September, October, November, and December 2026. All predictions use information through August 31. September is retrospective; October onward is prospective only when I publish the forecast before its window begins. These are five-day windows, not whole-month forecasts. I define the gaps, target dates, and training eligibility in [my forecast specification](docs/forecast_freeze_v0_1.md).
 
 ### 3. Baselines
 
@@ -61,7 +61,7 @@ The project is designed to make the mathematics visible. The documentation will 
 
 ### v0.1 — Prospective baseline
 
-Freeze the research protocol, implement the first signal/forecasting pipeline, and preserve the first prospective forecasts.
+I have implemented and run the baseline forecasting pipeline. My [forecast record](forecasts/2026-09-30-v0.1/forecasts.csv), [input and source fingerprints](forecasts/2026-09-30-v0.1/manifest.json), [fitted models](forecasts/2026-09-30-v0.1/models.json), and [historical diagnostic scores](forecasts/2026-09-30-v0.1/historical_metrics.csv) are preserved together. The signal-processing extension remains future work. Reproduction commands and limitations are in [the release specification](docs/forecast_freeze_v0_1.md).
 
 ### v1.0 — Signal processing & prospective forecasting
 

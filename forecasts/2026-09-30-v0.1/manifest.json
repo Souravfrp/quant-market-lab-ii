@@ -1,0 +1,48 @@
+{
+  "created_at_utc": "2026-09-30T00:19:09.166557+00:00",
+  "created_at_ist": "2026-09-30T05:49:09.166557+05:30",
+  "information_cutoff": "2026-08-31",
+  "input_sha256": "637fdeb14b482a12b37abef1fce77f5f94b161c3a92ab28b28948dd3736a4c59",
+  "price_rows": 2932,
+  "first_date": "2015-01-02",
+  "last_date": "2026-08-31",
+  "assets": [
+    "SPY",
+    "QQQ",
+    "IWM",
+    "TLT",
+    "GLD",
+    "USO",
+    "EEM",
+    "VNQ"
+  ],
+  "original_repository": "https://github.com/Souravfrp/quant-ai-market-lab",
+  "original_commit": "e41010ec71ca615188874f9bb501fe9dd518621b",
+  "alpha": 1.0,
+  "solver": "svd",
+  "training_window": "expanding",
+  "selection": "Fixed before this run; no selection from new diagnostic scores",
+  "ridge_nonnegative_projection": true,
+  "source_sha256": {
+    "src/freeze_forecasts.py": "58f9dc78263979bacb428af449afc6ef3f6921af7b39ee8e8a79013af7ffa3ce",
+    "src/validate_cutoff.py": "afe4e9648c4084b953a9635f5b4794d111093674d69637ed489906c2753644b9",
+    "docs/forecast_freeze_v0_1.md": "40526eecd8f596ee7b4a71a61416a862d307a77356faacb2f74851db6292262d",
+    "requirements-freeze.txt": "46986321d8ad33b2aef799f9a467bb01a7623fbb378a7fdb2bb1e8207b9feb4e"
+  },
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.8.0"
+  },
+  "data_vintage": "User-supplied original-project snapshot; original download timestamp not independently verified",
+  "september_outcomes_loaded": false,
+  "scope": "First five scheduled sessions of each month, not whole-month risk or return direction",
+  "publication_note": "Creation time is not publication proof; the GitHub commit establishes the external record.",
+  "output_sha256": {
+    "forecasts.csv": "6c4fa61869435abd121a997310b6a7aaca8a74a6f566f151b560e2f8e8ed3d71",
+    "historical_metrics.csv": "cc401da5cba0a0da62e599c7f1cf7ff0e62a015f1d699b38fbd799b87958ab75",
+    "historical_predictions.csv": "b530ce22f6a102b56ec15eee89ae7b9bb38acd6ca55dc93296a596d5e7a9e199",
+    "models.json": "4ab9d8efeb5b74ae6a75e32f2e52643732205d3130e4f64e2f5032bfd121ed3b"
+  }
+}

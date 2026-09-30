@@ -65,20 +65,13 @@ My preferred design is rolling-origin or expanding-window validation. At each hi
 
 I will not use random train-test shuffling for the main forecasting comparison.
 
-I will fix the exact first training date, refit frequency, forecast horizon, and minimum training length after I select the primary target.
+For v0.1 I use an expanding history with at least 504 completed training examples, five-return targets, and month-end historical diagnostic origins starting January 2019. Final models are fitted once using the August cutoff. For every gap g, a training origin s is eligible only when its target ends at s+g+5 on or before the fitting origin. I do not refit the frozen models using later observations.
 
-## 5. How I will choose the primary target
+## 5. My primary target for the first freeze
 
-I am intentionally leaving the primary forecasting target open at this stage.
+I retain the original project's five-day SPY daily-log-return RMS target. I fit separate direct forecasts for gaps of 0, 21, 43, and 63 sessions after August 31. These correspond to the first five scheduled sessions of September through December. I do not change the primary target to 20-day annualized volatility for this release.
 
-My next research decision will compare a small number of defensible forward risk targets, most likely:
-
-- 5-trading-day realized volatility
-- 20-trading-day realized volatility
-
-I will define the chosen target mathematically before I run the first model comparison. I will justify the choice using interpretability, sample size, forecast horizon, and relevance to the prospective October-December evaluation.
-
-Once I choose the primary target for the frozen v0.1 experiment, I will not change it merely because another target later produces better results.
+I define the exact windows, features, fixed model settings, baselines, completed-label rule, and diagnostic schedule in [my v0.1 specification](forecast_freeze_v0_1.md). That specification settles the choices left open in the initial protocol. I retain the earlier Git version as the record of those initial plans.
 
 ## 6. Baselines I will require
 
@@ -108,7 +101,7 @@ I will not describe September results as forecasts made before September began.
 
 ## 8. How I will preserve October-December prospective forecasts
 
-For a forecast to count as genuinely prospective, I will create and commit it before the corresponding evaluation period is observed.
+For a forecast to count as genuinely prospective, I will create and publish it before its target window begins, including the previous closing price that anchors its first close-to-close return. I preserve September predictions and October-December forecasts together before opening September outcomes. Later model changes belong to separate versions.
 
 For each frozen forecast version, I will record:
 

@@ -1,0 +1,142 @@
+[
+  {
+    "target_month": "2026-09",
+    "gap_sessions": 0,
+    "training_examples": 2907,
+    "first_training_origin": "2015-02-02",
+    "last_training_origin": "2026-08-24",
+    "last_training_target_end": "2026-08-31",
+    "feature_names": [
+      "spy_return",
+      "spy_volatility_20d",
+      "cross_asset_dispersion"
+    ],
+    "forecast_features": [
+      -0.0029939983934993636,
+      0.005896444201157139,
+      0.012287787887139169
+    ],
+    "scaler_mean": [
+      0.000527504265577215,
+      0.009331618331975816,
+      0.010376619256691444
+    ],
+    "scaler_scale": [
+      0.011101883885749467,
+      0.006142250187229829,
+      0.0068447412182245804
+    ],
+    "ridge_coefficients": [
+      -0.0011189156992462064,
+      0.0034024253149036354,
+      0.0012260638016903431
+    ],
+    "ridge_intercept": 0.00876540248957001,
+    "raw_ridge_forecast": 0.0075597857714649365
+  },
+  {
+    "target_month": "2026-10",
+    "gap_sessions": 21,
+    "training_examples": 2886,
+    "first_training_origin": "2015-02-02",
+    "last_training_origin": "2026-07-24",
+    "last_training_target_end": "2026-08-31",
+    "feature_names": [
+      "spy_return",
+      "spy_volatility_20d",
+      "cross_asset_dispersion"
+    ],
+    "forecast_features": [
+      -0.0029939983934993636,
+      0.005896444201157139,
+      0.012287787887139169
+    ],
+    "scaler_mean": [
+      0.0005200222769238115,
+      0.009338984916950555,
+      0.010341272827538281
+    ],
+    "scaler_scale": [
+      0.01112124025264454,
+      0.0061635932297105745,
+      0.006822421668287905
+    ],
+    "ridge_coefficients": [
+      -0.000320129762682912,
+      0.001506967720753033,
+      0.0002348366624728468
+    ],
+    "ridge_intercept": 0.008791146868930285,
+    "raw_ridge_forecast": 0.008117617091300459
+  },
+  {
+    "target_month": "2026-11",
+    "gap_sessions": 43,
+    "training_examples": 2864,
+    "first_training_origin": "2015-02-02",
+    "last_training_origin": "2026-06-23",
+    "last_training_target_end": "2026-08-31",
+    "feature_names": [
+      "spy_return",
+      "spy_volatility_20d",
+      "cross_asset_dispersion"
+    ],
+    "forecast_features": [
+      -0.0029939983934993636,
+      0.005896444201157139,
+      0.012287787887139169
+    ],
+    "scaler_mean": [
+      0.000521479674687154,
+      0.00933864637868669,
+      0.010313351429091781
+    ],
+    "scaler_scale": [
+      0.011147823179394221,
+      0.00618553082706267,
+      0.006813502738024615
+    ],
+    "ridge_coefficients": [
+      2.4396294060997535e-05,
+      0.0007481949883504307,
+      0.00015519216915609548
+    ],
+    "ridge_intercept": 0.008796748482007604,
+    "raw_ridge_forecast": 0.008417662138509398
+  },
+  {
+    "target_month": "2026-12",
+    "gap_sessions": 63,
+    "training_examples": 2844,
+    "first_training_origin": "2015-02-02",
+    "last_training_origin": "2026-05-22",
+    "last_training_target_end": "2026-08-31",
+    "feature_names": [
+      "spy_return",
+      "spy_volatility_20d",
+      "cross_asset_dispersion"
+    ],
+    "forecast_features": [
+      -0.0029939983934993636,
+      0.005896444201157139,
+      0.012287787887139169
+    ],
+    "scaler_mean": [
+      0.0005299757750361983,
+      0.00934669118336262,
+      0.01027967988985599
+    ],
+    "scaler_scale": [
+      0.011151274607086696,
+      0.006204648859577462,
+      0.00680605857813339
+    ],
+    "ridge_coefficients": [
+      -0.00011135850429785272,
+      0.00029063570967040954,
+      3.4418160955264824e-05
+    ],
+    "ridge_intercept": 0.00881694571427319,
+    "raw_ridge_forecast": 0.00870067658700122
+  }
+]

@@ -29,7 +29,7 @@ The initial research cutoff is:
 
 For the frozen prospective experiment, no observation after that date may be used to construct features, scale inputs, select hyperparameters, fit the frozen model, or revise the stored forecasts.
 
-Because September 2026 is already partly observed during development, any September analysis must be labelled honestly as holdout or retrospective evaluation rather than as a forecast made before September began. Forecasts for later periods will be preserved with their Git history before those periods are evaluated.
+Because the September five-session target was already observed during development, any September analysis must be labelled honestly as holdout or retrospective evaluation rather than as a forecast made before September began. Forecasts for later periods will be preserved with their Git history before those periods are evaluated.
 
 ## Initial Scope
 
@@ -76,3 +76,40 @@ If the core forecasting study is complete, I may extend the repository to a sepa
 I want the repository to distinguish clearly between what was known when a forecast was created and what was learned afterward. Negative results are valid results. If a signal-processing method fails to outperform a simple baseline, I will report that rather than redesigning the historical forecast after seeing the outcome.
 
 This project is a research and learning exercise, not investment advice and not evidence of future profitability.
+
+## How I read the results
+
+I compare predictions with observed five-day RMS. Each marker summarizes five trading sessions; it is not a daily prediction or a whole-month average. I leave monthly markers disconnected because the intervening days are not represented by those points.
+
+### Historical comparison: February 2019–April 2026
+
+![Historical five-day RMS comparison, with discrete monthly markers](results/figures/historical_five_day_comparison.png)
+
+I compare the same 87 windows for all three methods. Ridge has the lowest average absolute error in this historical comparison. These are development results, not an untouched test.
+
+### May–September 2026 comparison
+
+![May–September comparisons with separate cutoffs and target windows](results/figures/may_september_risk_comparison.png)
+
+The four May–August windows use an April 30 information cutoff and different session gaps. September uses an August 31 cutoff and zero gap. These windows are retrospective checks; their different origins are part of the experiment and must remain visible.
+
+### September retrospective comparison
+
+![September five-session retrospective comparison](results/figures/september_risk_comparison.png)
+
+The observed daily RMS over September 1, 2, 3, 4 and 8 is approximately 0.6646%. Rolling RMS is slightly closer than Ridge in this window. That does not contradict Ridge's lower average historical error: one window and an average across 87 windows answer different questions.
+
+I explain the target, geometry, feature construction, Ridge objective, SVD solution, baselines, training eligibility, errors and computational cost in [my mathematical and algorithmic notes](docs/figure_methodology.md). The [window table](results/figure_windows.csv) lists origins and target endpoints, and the [value table](results/figure_values.csv) gives the plotted numbers. My [references](docs/references.md) identify the method documentation, calendar and source data records.
+
+To reconstruct the comparisons and check their saved numbers:
+
+```bash
+python -m pip install -r requirements-figures.txt
+python -m src.plot_risk_comparisons
+```
+
+The reconstruction writes to `results/figures/rebuilt/`. The three selected figures above retain their approved layouts. This command checks the plotted data; it is not a full independent validation of the forecasting experiment.
+
+### A separate monthly-update experiment
+
+The existing October–December forecast record uses the fixed August 31 cutoff. A proposed monthly-update experiment would refresh the information cutoff each month and predict the next five sessions at gap zero. I have not generated that new experiment here. Its outputs must be recorded separately with their actual creation times, without rewriting the frozen release.

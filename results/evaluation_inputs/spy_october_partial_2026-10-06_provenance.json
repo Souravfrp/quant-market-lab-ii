@@ -1,0 +1,25 @@
+{
+  "asset": "SPY",
+  "retrieval_date": "2026-10-07",
+  "as_of_session": "2026-10-06",
+  "role": "partial-window evaluation only; not training data",
+  "price_column": "Adj. Close as displayed by Stock Analysis, in USD, rounded to two decimals",
+  "primary_snapshot_url": "https://stockanalysis.com/etf/spy/history/",
+  "page_attribution": "Stock Analysis identifies S&P Global Market Intelligence as its historical data provider",
+  "cross_check_url": "https://chartexchange.com/symbol/nyse-spy/historical/",
+  "cross_check_scope": "The historical table Close column agrees on all five dates; this is not an independent audit of adjustments.",
+  "acquisition": "Manually transcribed from public historical tables inspected on retrieval_date; no live API download is claimed.",
+  "limitations": [
+    "The original frozen training snapshot uses a different data source and vintage.",
+    "Two-decimal display prices limit precision.",
+    "No October 7 price is included.",
+    "Use one consistent adjusted-close source for all six prices when producing the final evaluation; archive any revised snapshot separately."
+  ],
+  "expected_return_dates": [
+    "2026-10-01",
+    "2026-10-02",
+    "2026-10-05",
+    "2026-10-06"
+  ],
+  "pending_return_date": "2026-10-07"
+}

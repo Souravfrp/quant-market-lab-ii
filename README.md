@@ -4,6 +4,18 @@ I am building Quant Market Lab II as a focused continuation of my earlier **Quan
 
 The purpose is not to claim that markets are reliably predictable. The purpose is to design an auditable forecasting experiment in which the cutoff date, target, features, model-selection rules, forecasts, and later evaluation are kept separate enough to expose look-ahead bias and overfitting.
 
+## Status on 7 October 2026
+
+I am starting the signal-processing extension with a [documented EWMA experiment plan](docs/signal_processing_plan.md). I have not fitted that extension or generated its forecasts. The existing October–December archive contains Ridge and two baseline forecasts.
+
+As of the 6 October US close, four returns in the October 1–7 target window are observable. The fifth needs the 7 October close. My [dated status note](docs/evaluation_status_2026-10-07.md) explains the partial window, the final five-return calculation, data sources and timing. I do not score the original five-return forecast against a four-return actual.
+
+![August cutoff, September evaluation and partial October observations](results/figures/evaluation_status_2026-10-07.png)
+
+The chart shows saved historical and September comparisons, the frozen October predictions, and four October daily returns. October's final actual is left pending. The prices used for this partial view are in a separate evaluation snapshot with provenance; they are not added to the frozen August training file.
+
+I will test causal exponential smoothing against the existing baselines, using the same five-return RMS target and matched historical dates. My [mathematical notes](docs/figure_methodology.md#signal-processing-extension-recorded-7-october-2026) explain why this is my first signal experiment and link the recursion, initialization, validation plan and operation counts. Historical comparisons and a later prospective signal forecast will be recorded separately from v0.1.
+
 ## Research Question
 
 The initial question is:
@@ -121,3 +133,4 @@ I reproduce this figure with `python -m src.plot_future_forecasts`. The script r
 ### A separate monthly-update experiment
 
 The existing October–December forecast record uses the fixed August 31 cutoff. A proposed monthly-update experiment would refresh the information cutoff each month and predict the next five sessions at gap zero. I have not generated that new experiment here. Its outputs must be recorded separately with their actual creation times, without rewriting the frozen release.
+

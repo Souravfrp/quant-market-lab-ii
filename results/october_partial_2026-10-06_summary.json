@@ -1,0 +1,16 @@
+{
+  "as_of_session": "2026-10-06",
+  "status": "partial; fifth return unavailable",
+  "completed_returns": 4,
+  "expected_returns": 5,
+  "partial_four_return_rms": 0.005759682190741291,
+  "five_return_rms_lower_bound": 0.005151616362916975,
+  "final_five_return_rms": null,
+  "precision_note": "Two-decimal public prices; not a final forecast score.",
+  "input_sha256": {
+    "results/evaluation_inputs/spy_october_partial_2026-10-06.csv": "44c4061b3bd42693d2fb1c802deaf6fabd3d49da13dc97b349a0e4c270e9d9bd",
+    "forecasts/2026-09-30-v0.1/forecasts.csv": "6c4fa61869435abd121a997310b6a7aaca8a74a6f566f151b560e2f8e8ed3d71",
+    "results/figure_values.csv": "fb1317f5fb144f6f4c001a3477c6f3970c7c519c2b4186a17fcfd69e61b122ad"
+  },
+  "source": "See the evaluation-input provenance JSON for acquisition and limitations."
+}

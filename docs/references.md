@@ -14,3 +14,17 @@ I use established methods and explain their role in this experiment in my own wo
 - [Reconstruction code](../src/plot_risk_comparisons.py): exact row selection, unit conversion and checks used in the companion figures.
 
 These are the sources used for this documentation update. I have not copied explanatory passages from them. Attribution does not imply that the implementation has received an external audit, and no plagiarism similarity score is claimed.
+
+
+
+## Sources consulted for the 7 October signal plan and status update
+
+5. [NIST/SEMATECH: Single Exponential Smoothing](https://itl.nist.gov/div898/handbook/pmc/section4/pmc431.htm). Source for exponential weighting and the need to choose an initialization and smoothing parameter. I apply smoothing to squared returns as a proposed experiment; this page does not validate financial forecast performance.
+6. [pandas 2.2: DataFrame.ewm](https://pandas.pydata.org/pandas-docs/version/2.2/reference/api/pandas.DataFrame.ewm.html). Source for `adjust=False` recursion and smoothing-parameter conventions. My lambda is the previous-state weight; pandas alpha is `1-lambda`. The 20-observation seed is my explicit experiment choice.
+7. [NYSE: Hours and Calendars](https://www.nyse.com/markets/hours-calendars). Source for regular-session closing time. For October 7, 2026, I convert 16:00 America/New_York to 01:30 Asia/Kolkata on October 8; provider availability can be later.
+8. [SciPy: filtfilt](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.filtfilt.html). Source for forward-and-backward filtering; this explains why that operation is not my live causal feature construction.
+9. [statsmodels: State space methods](https://www.statsmodels.org/stable/statespace.html). Source for the alternative class of state-space models, which is deferred rather than implemented here.
+10. [Stock Analysis: SPY historical prices](https://stockanalysis.com/etf/spy/history/). Public displayed adjusted-close source for the five-price September 30–October 6 partial snapshot, transcribed October 7. The page attributes historical data to S&P Global Market Intelligence. Prices are displayed to two decimals. This is a new evaluation source, not the original frozen training data vendor or vintage.
+11. [ChartExchange: SPY historical prices](https://chartexchange.com/symbol/nyse-spy/historical/). Historical-table close prices cross-checked for those same five dates. Agreement of displayed closes does not verify all adjustment conventions or eliminate later data revisions.
+
+The new [price provenance JSON](../results/evaluation_inputs/spy_october_partial_2026-10-06_provenance.json) describes acquisition and limitations. The plotting script saves SHA-256 fingerprints of its CSV inputs alongside the derived summary. The September value remains the existing repository result, with its existing researcher-supplied provenance; I do not replace it with a differently rounded source. These references support definitions and provenance, not a claim of external validation or forecasting superiority.

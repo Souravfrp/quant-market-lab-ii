@@ -157,3 +157,11 @@ I will treat a negative result as a valid result.
 If the signal-processing method does not outperform a simple baseline, I will report that directly. My research question is whether the method adds evidence of forecasting value under a controlled prospective design, not whether I can force the project to produce a positive result.
 
 I may extend this protocol later as the project develops. If I make a change that materially affects the experiment, I will document that change explicitly rather than silently replacing the original rule.
+
+
+
+## Dated addendum: 7 October 2026
+
+I have recorded a separate EWMA signal-processing plan and a partial-October status note. This addendum records a decision made now; it does not revise the original August-cutoff v0.1 forecast specification. The new plan is in [signal_processing_plan.md](signal_processing_plan.md), including candidate parameters, chronological validation, initialization, future-data checks and freeze requirements. The existing forecast files remain the baseline record.
+
+As of the 6 October close, four of the five October target returns are available. A method created now for the October 1–7 window is a partially observed-window experiment, not a fully prospective five-return forecast. An earlier input cutoff does not change its actual creation date. I preserve the original October forecast and evaluate it only after the final return becomes available. Future signal-based forecasts receive their own version, cutoff, publication record and evaluation windows.

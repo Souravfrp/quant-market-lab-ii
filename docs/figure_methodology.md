@@ -112,3 +112,15 @@ python -m src.plot_risk_comparisons
 ```
 
 It validates source numbers, writes the window/value tables, and produces comparable figures in results/figures/rebuilt. Layout can differ from the approved rendering; the data and meanings are reproduced. It does not overwrite approved PNGs or frozen forecasts. September's six-close input is a researcher-supplied adjusted-price snapshot, not a fresh vendor verification. The original manifest's source hashes describe the frozen release; I preserve that specification and add this companion explanation.
+
+
+
+## Signal-processing extension recorded 7 October 2026
+
+The [EWMA experiment plan](signal_processing_plan.md) adds a separate causal-signal question to these baseline notes. It defines the smoothed second moment $v_t=\lambda v_{t-1}+(1-\lambda)r_t^2$, initialization, geometric weighting and half-life, and distinguishes an EWMA-only persistence forecast from Ridge with an extra signal feature. The proposed choices and complexity are explained there; no improvement result is claimed.
+
+For a gap-zero fit at origin $t$, training labels satisfy $s+5\le t$. With $s_t=\sqrt{v_t}$, the new feature vector would be $x'_t=(r_{SPY,t},s_{20,t},d_t,s_t)$. Scaling still uses eligible training rows only. A signal computed after close $t$ cannot be a prediction of that day's already observed return.
+
+If I compare two methods on matched target windows, the primary MAE improvement is $100(MAE_{baseline}-MAE_{candidate})/MAE_{baseline}$ percent, provided the baseline MAE is nonzero. It is an error reduction, not a return or investment performance measure. A small reduction does not establish statistical significance. The validation stage selects lambda; later historical assessment is reported separately and remains development-aware.
+
+For the incomplete October window, the [dated status note](evaluation_status_2026-10-07.md) distinguishes $\sqrt{S_4/4}$ from the final $\sqrt{(S_4+r_5^2)/5}$. Both equations are needed to prevent a four-return description being mistaken for the frozen five-return target. The plot leaves the fifth return unavailable rather than assuming zero.

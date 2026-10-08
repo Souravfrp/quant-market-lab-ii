@@ -1,0 +1,33 @@
+{
+  "price_source": "Yahoo Finance chart API, query1.finance.yahoo.com",
+  "price_column": "indicators.adjclose[0].adjclose",
+  "retrieved_at_utc": "2026-10-08T05:09:57.367968+00:00",
+  "ticker_retrieved_at_utc": {
+    "SPY": "2026-10-08T05:09:35.654944+00:00",
+    "QQQ": "2026-10-08T05:09:35.613679+00:00",
+    "IWM": "2026-10-08T05:09:40.917740+00:00",
+    "TLT": "2026-10-08T05:09:40.960681+00:00",
+    "GLD": "2026-10-08T05:09:49.106932+00:00",
+    "USO": "2026-10-08T05:09:49.158794+00:00",
+    "EEM": "2026-10-08T05:09:57.296767+00:00",
+    "VNQ": "2026-10-08T05:09:57.367968+00:00"
+  },
+  "input_sha256": "5011666728c80d854af1eb788186482b65517dd9b9864233f593404ccb23b983",
+  "calendar_source": "exchange_calendars XNYS; 2026 holidays checked against NYSE published schedule",
+  "calendar_package_version": "4.13.2",
+  "request_start_inclusive": "2015-01-01",
+  "request_end_exclusive": "2026-10-08",
+  "raw_response_sha256": {
+    "SPY": "7c5cab08251bef44fe8211a4fe6ab257417a2afae0703b1e0cb2817a9a35e6eb",
+    "QQQ": "3e80eb0e7eb83dc4d4f0b5631c4613e8578d4850024646d3bc9217b4abf6a192",
+    "IWM": "761c637ad90e8f529e2370402d6edd6ef062a9520241e0cff6e91d8b01eaa195",
+    "TLT": "f41de8345eaf99cb16a4a3fc1c905dbe874bd23f0da2d6b9762c0bc42a5ed606",
+    "GLD": "4bcad4948d59f937d2530c16093083155ea1b977d8ef5b24719c6b3fb7a2569d",
+    "USO": "5d31c79ed6d8f7d7f7002276594d3bb310ed2109bf7785b3f9ac8f139b2e7a22",
+    "EEM": "11b8b22ba19bc9c0f1df62fde4436e8c0d6aa80bffe27f04605ad675dac2cae7",
+    "VNQ": "d175bf205210f883511986ba2b240ab5ea018dcc95cc2e21902d6f86b1616303"
+  },
+  "original_august_sha256": "637fdeb14b482a12b37abef1fce77f5f94b161c3a92ab28b28948dd3736a4c59",
+  "original_august_byte_match": false,
+  "snapshot_note": "Current download, not recovery of the original file. Historical adjusted prices can incorporate later distributions or provider revisions."
+}

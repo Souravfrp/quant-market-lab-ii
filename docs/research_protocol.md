@@ -1,6 +1,6 @@
 # Research Protocol: Fixed-Cutoff Prospective Forecasting
 
-**Update on 8 October 2026:** I supplied my preserved original CSV. Its hash exactly matches the original freeze, resolving the original-input availability limitation. A separately saved EWMA run on those verified original bytes selects the same decays and agrees with the reconstruction at the displayed precision. See [the original-data verification report](original_august_verification.md). The earlier reconstruction and October freezes remain unchanged.
+**Update on 8 October 2026:** I initially expected a new download of the same historical series to reproduce my saved prices. When I compared the files, I observed that some adjusted prices differed between download vintages. This showed me why I need to use the preserved original dataset when reproducing the original experiment. I had kept that CSV locally; its SHA-256 exactly matches the original frozen manifest. The verified-original EWMA run selects the same decays and agrees with the reconstruction at the displayed precision. See [the original-data verification report](original_august_verification.md). Earlier freezes remain unchanged.
 
 
 ## Purpose

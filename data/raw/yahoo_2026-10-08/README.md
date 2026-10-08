@@ -1,6 +1,6 @@
 # Yahoo snapshot retrieved 8 October 2026
 
-**Update on 8 October 2026:** I supplied my preserved original CSV. Its hash exactly matches the original freeze, resolving the original-input availability limitation. A separately saved EWMA run on those verified original bytes selects the same decays and agrees with the reconstruction at the displayed precision. See [the original-data verification report](../../../docs/original_august_verification.md). The earlier reconstruction and October freezes remain unchanged.
+**Update on 8 October 2026:** I initially expected a new download of the same historical series to reproduce my saved prices. When I compared the files, I observed that some adjusted prices differed between download vintages. This showed me why I need to use the preserved original dataset when reproducing the original experiment. I had kept that CSV locally; its SHA-256 exactly matches the original frozen manifest. The verified-original EWMA run selects the same decays and agrees with the reconstruction at the displayed precision. See [the original-data verification report](../../../docs/original_august_verification.md). Earlier freezes remain unchanged.
 
 
 I saved the complete adjusted-close series for all eight ETFs, starting 2 January 2015. The August file ends 31 August (2,932 rows); the October file ends 7 October (2,958 rows). Dates match the exchange_calendars 4.13.2 XNYS schedule; the 2026 holidays were checked against the NYSE published schedule. All prices are positive, finite and complete.

@@ -74,7 +74,7 @@ Rolling-20 was closer than Ridge and the constant baseline in the first October 
 
 My original Market Lab ingestion code used Yahoo Finance through `yfinance`, with `auto_adjust=False` and the `Adj Close` column. For this October evaluation I retained one complete Stock Analysis adjusted-price snapshot rather than assembling a series from partially verified sources.
 
-During the subsequent Yahoo check, direct requests for the historical web page returned HTTP 429 (“Too Many Requests”). The accessible cached historical table ended on October 5. This was an access limitation in this session, not evidence that Yahoo lacked October 6 or October 7 data. I did not test a fresh `yfinance` download, so I do not claim its API was unavailable.
+My initial historical-page requests returned HTTP 429, and the accessible cached table ended on October 5. I therefore recorded October 6 and 7 adjusted prices as unverified at that stage. Later on 8 October I successfully downloaded Yahoo's complete chart-API adjusted-price series, including both dates. The earlier access issue is resolved; it was not a missing market observation.
 
 | Date, 2026 | Stock Analysis Adj. Close (USD) | Yahoo evidence available in this check | What I can conclude |
 |---|---:|---|---|
@@ -82,9 +82,19 @@ During the subsequent Yahoo check, direct requests for the historical web page r
 | October 1 | 763.99 | Cached historical Close and Adj Close: 763.99 | Displayed adjusted prices match |
 | October 2 | 769.64 | Cached historical Close and Adj Close: 769.64 | Displayed adjusted prices match |
 | October 5 | 774.83 | Cached historical Close and Adj Close: 774.83 | Displayed adjusted prices match |
-| October 6 | 779.09 | Historical Close and Adj Close not directly verified | Adjusted-price agreement remains unverified |
-| October 7 | 777.22 | Yahoo quote page: regular-session Close 777.22 | Close matches; historical Adj Close remains unverified |
+| October 6 | 779.09 | Saved Yahoo adjusted close: 779.0900268554688 | Matches when rounded to cents |
+| October 7 | 777.22 | Saved Yahoo adjusted close: 777.219970703125 | Matches when rounded to cents |
 
-Sources inspected: [Yahoo SPY cached historical table](https://finance.yahoo.com/quote/SPY/history/?p=SPY), [Yahoo SPY quote](https://ca.finance.yahoo.com/quote/SPY/), and [Stock Analysis historical adjusted prices](https://stockanalysis.com/etf/spy/history/). The quote's previous-close implication for October 6 is not independent verification of that date's adjusted close.
+I subsequently verified all six SPY adjusted prices from the [saved Yahoo snapshot](../data/raw/yahoo_2026-10-08/README.md). They agree with the Stock Analysis snapshot when rounded to cents. This resolves the previous October 6/7 verification gap. The eight-cent October 7 discrepancy remains a separate comparison with ChartExchange, not Yahoo.
 
-I found no confirmed Yahoo–Stock Analysis price mismatch in the entries I verified, but I cannot say that all six adjusted prices agree. The eight-cent October 7 discrepancy discussed above is with **ChartExchange**, not Yahoo. I retain the existing RMS and forecast-error results, explicitly conditional on the archived Stock Analysis snapshot. I do not replace an adjusted-price value with a quote or treat an access problem as a missing market observation. Full-precision original-provider reconciliation remains open; any later snapshot and comparison will be recorded separately.
+## Full-precision Yahoo reconciliation
+
+I recalculated the original five-return target from Yahoo adjusted prices for September 30 and October 1, 2, 5, 6 and 7. The observed RMS is **0.005262540681194064**, or **0.5262540681%**. The preserved cent-rounded Stock Analysis calculation is 0.5262523121%; the difference is about **0.000001756 percentage points**. Both display as **0.5263%**, and rolling-20 remains the closest of the three original frozen forecasts.
+
+I retain the original forecasts and the earlier source-specific evaluation, and save this later verification separately in [the Yahoo reconciliation directory](../results/october_2026_yahoo_reconciliation/). It includes the six-price panel, five daily returns, source comparisons, ETF profiles, forecast errors and a fingerprinted summary. I do not retrain the rolling-20 baseline or replace a forecast after seeing its outcome.
+
+```bash
+python -m src.reconcile_october_yahoo
+```
+
+This command reads the committed Yahoo snapshot, verifies its input hash and the frozen forecast hash, and refuses to overwrite an existing reconciliation. The numerical work costs O(TA + M) for T returns, A assets and M forecast methods; retaining the comparison tables costs O(TA + M). It does not fetch live prices or fit a model.

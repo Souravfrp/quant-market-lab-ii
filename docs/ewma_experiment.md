@@ -1,6 +1,6 @@
 # My EWMA experiment: protocol fixed on 8 October 2026
 
-**Update on 8 October 2026:** I supplied my preserved original CSV. Its hash exactly matches the original freeze, resolving the original-input availability limitation. A separately saved EWMA run on those verified original bytes selects the same decays and agrees with the reconstruction at the displayed precision. See [the original-data verification report](original_august_verification.md). The earlier reconstruction and October freezes remain unchanged.
+**Update on 8 October 2026:** I initially expected a new download of the same historical series to reproduce my saved prices. When I compared the files, I observed that some adjusted prices differed between download vintages. This showed me why I need to use the preserved original dataset when reproducing the original experiment. I had kept that CSV locally; its SHA-256 exactly matches the original frozen manifest. The verified-original EWMA run selects the same decays and agrees with the reconstruction at the displayed precision. See [the original-data verification report](original_august_verification.md). Earlier freezes remain unchanged.
 
 
 I chose EWMA because I can compute it from the adjusted-price return history already required by my RMS experiment. I am not claiming that it will outperform the other methods. I compare a standalone EWMA forecast and an EWMA feature added to my existing Ridge model against constant, rolling 20-session RMS and three-feature Ridge baselines.

@@ -1,0 +1,22 @@
+{
+  "record_date": "2026-10-08",
+  "source": "Yahoo Finance saved chart API adjusted-close snapshot",
+  "october_6_spy_adjusted_close": 779.0900268554688,
+  "october_7_spy_adjusted_close": 777.219970703125,
+  "actual_rms_decimal": 0.005262540681194064,
+  "stock_analysis_actual_rms_decimal": 0.005262523121320901,
+  "difference_in_rms_decimal": 1.7559873163180972e-08,
+  "closest_method": "rolling_20d_rms",
+  "spy_six_prices_match_rounded_cents": true,
+  "input_sha256": "67ace84a32c6627e9e9ade14c85d53888b70ee3bf636efe7bd12866eed695740",
+  "frozen_forecast_sha256": "6c4fa61869435abd121a997310b6a7aaca8a74a6f566f151b560e2f8e8ed3d71",
+  "source_sha256": "89d370c73514f10f6825eaa874b7608b2d758431e5a5ce2e1f6ac43724662efd",
+  "preservation": "Original forecasts and Stock Analysis evaluation remain unchanged; this is a separate full-precision Yahoo reconciliation.",
+  "output_sha256": {
+    "adjusted_close.csv": "b52c7613359d9d03cee7ef4866e6890aeabf52e8619b382e99424f0faeeb6518",
+    "daily_log_returns.csv": "14fc6371179a5ff9add7453db1cc7b6e534ccf37340613faf9c24362a910e783",
+    "source_comparison.csv": "c9fd03486ba398434a5036e74be348ac9b1cc868d4b32d82e2eba7f197be386b",
+    "forecast_errors.csv": "a4b1883367d46582d17be2cfcd43822ed4b43e8f71ab1b5560a11e1278ef685e",
+    "etf_observed_profile.csv": "72354b1e63b31adf6c65e0fda536c4a1e45ae31016129d550682affff1fb5779"
+  }
+}

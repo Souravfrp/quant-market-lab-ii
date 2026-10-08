@@ -1,6 +1,8 @@
 # Verification of my original August dataset — 8 October 2026
 
-I had preserved the original CSV in my own folder. It was initially unavailable in the assistant's workspace, not lost. After I uploaded it, its SHA-256 matched the original v0.1 manifest exactly:
+I initially expected a new download of the same historical series to reproduce my saved prices. When I compared the files, I observed that some adjusted prices differed between download vintages. This showed me why I need to use the preserved original dataset when reproducing the original experiment. I had kept that CSV locally; its SHA-256 exactly matches the original frozen manifest.
+
+Original input SHA-256:
 
 `637fdeb14b482a12b37abef1fce77f5f94b161c3a92ab28b28948dd3736a4c59`
 

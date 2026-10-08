@@ -129,3 +129,8 @@ For the incomplete October window, the [dated status note](evaluation_status_202
 ## Completed October scoring recorded 8 October 2026
 
 The [completed-window note](october_2026_baseline_evaluation.md) now scores the five-return target using six prices from one saved adjusted-price source. It defines RMS separately from demeaned standard deviation, uses signed error (forecast minus observed) and absolute error, records the original forecast hash, and reports a last-price sensitivity for the vendor discrepancy. Each method has one forecast error for this window, not five independent daily forecast errors. The partial October 7 record remains a dated historical note. The new figures and tables do not change frozen forecasts or implement EWMA.
+
+
+## Later Yahoo verification on 8 October 2026
+
+The full-precision Yahoo adjusted prices now verify October 6 and 7. Recalculated SPY RMS remains 0.5263% and rolling-20 remains closest. The existing figures retain their cent-rounded Stock Analysis source; the [separate reconciliation](october_2026_baseline_evaluation.md#full-precision-yahoo-reconciliation) reports exact Yahoo values without altering the frozen forecasts.

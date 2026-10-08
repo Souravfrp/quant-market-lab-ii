@@ -1,0 +1,314 @@
+[
+  {
+    "target_month": "2026-09",
+    "return_anchor_date": "2026-08-31",
+    "target_start": "2026-09-01",
+    "target_end": "2026-09-08",
+    "gap_sessions": 0,
+    "status": "retrospective_created_after_anchor",
+    "training_examples": 2907,
+    "last_training_target_end": "2026-08-31",
+    "last_training_origin": "2026-08-24",
+    "ridge_expanding": {
+      "raw_forecast": 0.0075597857714649365,
+      "feature_names": [
+        "spy_return",
+        "spy_volatility_20d",
+        "cross_asset_dispersion"
+      ],
+      "forecast_features": [
+        -0.0029939983934993636,
+        0.005896444201157139,
+        0.012287787887139169
+      ],
+      "scaler_mean": [
+        0.000527504265577215,
+        0.009331618331975816,
+        0.010376619256691444
+      ],
+      "scaler_scale": [
+        0.011101883885749467,
+        0.006142250187229829,
+        0.0068447412182245804
+      ],
+      "coefficients": [
+        -0.0011189156992462064,
+        0.0034024253149036354,
+        0.0012260638016903431
+      ],
+      "intercept": 0.00876540248957001
+    },
+    "ridge_ewma": {
+      "raw_forecast": 0.006436606342668325,
+      "feature_names": [
+        "spy_return",
+        "spy_volatility_20d",
+        "cross_asset_dispersion",
+        "ewma_rms"
+      ],
+      "forecast_features": [
+        -0.0029939983934993636,
+        0.005896444201157139,
+        0.012287787887139169,
+        0.00560118755798141
+      ],
+      "scaler_mean": [
+        0.000527504265577215,
+        0.009331618331975816,
+        0.010376619256691444,
+        0.00938667706364911
+      ],
+      "scaler_scale": [
+        0.011101883885749467,
+        0.006142250187229829,
+        0.0068447412182245804,
+        0.0059694038125114365
+      ],
+      "coefficients": [
+        -0.0010148474169479735,
+        -0.003810656453197875,
+        0.000571554881126017,
+        0.007792300119741479
+      ],
+      "intercept": 0.008765402489570008
+    },
+    "selected_decays": {
+      "ewma": 0.8,
+      "ridge_ewma": 0.9
+    }
+  },
+  {
+    "target_month": "2026-10",
+    "return_anchor_date": "2026-09-30",
+    "target_start": "2026-10-01",
+    "target_end": "2026-10-07",
+    "gap_sessions": 21,
+    "status": "retrospective_created_after_anchor",
+    "training_examples": 2886,
+    "last_training_target_end": "2026-08-31",
+    "last_training_origin": "2026-07-24",
+    "ridge_expanding": {
+      "raw_forecast": 0.008117617091300459,
+      "feature_names": [
+        "spy_return",
+        "spy_volatility_20d",
+        "cross_asset_dispersion"
+      ],
+      "forecast_features": [
+        -0.0029939983934993636,
+        0.005896444201157139,
+        0.012287787887139169
+      ],
+      "scaler_mean": [
+        0.0005200222769238115,
+        0.009338984916950555,
+        0.010341272827538281
+      ],
+      "scaler_scale": [
+        0.01112124025264454,
+        0.0061635932297105745,
+        0.006822421668287905
+      ],
+      "coefficients": [
+        -0.000320129762682912,
+        0.001506967720753033,
+        0.0002348366624728468
+      ],
+      "intercept": 0.008791146868930285
+    },
+    "ridge_ewma": {
+      "raw_forecast": 0.007622289608276418,
+      "feature_names": [
+        "spy_return",
+        "spy_volatility_20d",
+        "cross_asset_dispersion",
+        "ewma_rms"
+      ],
+      "forecast_features": [
+        -0.0029939983934993636,
+        0.005896444201157139,
+        0.012287787887139169,
+        0.00560118755798141
+      ],
+      "scaler_mean": [
+        0.0005200222769238115,
+        0.009338984916950555,
+        0.010341272827538281,
+        0.00939493783895982
+      ],
+      "scaler_scale": [
+        0.01112124025264454,
+        0.0061635932297105745,
+        0.006822421668287905,
+        0.00598938269976959
+      ],
+      "coefficients": [
+        -0.00027374391891951054,
+        -0.0016540447801184793,
+        -5.304518991038634e-05,
+        0.0034164927453975463
+      ],
+      "intercept": 0.008791146868930285
+    },
+    "selected_decays": {
+      "ewma": 0.8,
+      "ridge_ewma": 0.9
+    }
+  },
+  {
+    "target_month": "2026-11",
+    "return_anchor_date": "2026-10-30",
+    "target_start": "2026-11-02",
+    "target_end": "2026-11-06",
+    "gap_sessions": 43,
+    "status": "prospective_pending_publication",
+    "training_examples": 2864,
+    "last_training_target_end": "2026-08-31",
+    "last_training_origin": "2026-06-23",
+    "ridge_expanding": {
+      "raw_forecast": 0.008417662138509398,
+      "feature_names": [
+        "spy_return",
+        "spy_volatility_20d",
+        "cross_asset_dispersion"
+      ],
+      "forecast_features": [
+        -0.0029939983934993636,
+        0.005896444201157139,
+        0.012287787887139169
+      ],
+      "scaler_mean": [
+        0.000521479674687154,
+        0.00933864637868669,
+        0.010313351429091781
+      ],
+      "scaler_scale": [
+        0.011147823179394221,
+        0.00618553082706267,
+        0.006813502738024615
+      ],
+      "coefficients": [
+        2.4396294060997535e-05,
+        0.0007481949883504307,
+        0.00015519216915609548
+      ],
+      "intercept": 0.008796748482007604
+    },
+    "ridge_ewma": {
+      "raw_forecast": 0.008389122518287568,
+      "feature_names": [
+        "spy_return",
+        "spy_volatility_20d",
+        "cross_asset_dispersion",
+        "ewma_rms"
+      ],
+      "forecast_features": [
+        -0.0029939983934993636,
+        0.005896444201157139,
+        0.012287787887139169,
+        0.00560118755798141
+      ],
+      "scaler_mean": [
+        0.000521479674687154,
+        0.00933864637868669,
+        0.010313351429091781,
+        0.009401616850127642
+      ],
+      "scaler_scale": [
+        0.011147823179394221,
+        0.00618553082706267,
+        0.006813502738024615,
+        0.006011035879824828
+      ],
+      "coefficients": [
+        2.7013250341812368e-05,
+        0.0005686258501202853,
+        0.00013854916716045146,
+        0.00019426169543591221
+      ],
+      "intercept": 0.008796748482007604
+    },
+    "selected_decays": {
+      "ewma": 0.8,
+      "ridge_ewma": 0.9
+    }
+  },
+  {
+    "target_month": "2026-12",
+    "return_anchor_date": "2026-11-30",
+    "target_start": "2026-12-01",
+    "target_end": "2026-12-07",
+    "gap_sessions": 63,
+    "status": "prospective_pending_publication",
+    "training_examples": 2844,
+    "last_training_target_end": "2026-08-31",
+    "last_training_origin": "2026-05-22",
+    "ridge_expanding": {
+      "raw_forecast": 0.00870067658700122,
+      "feature_names": [
+        "spy_return",
+        "spy_volatility_20d",
+        "cross_asset_dispersion"
+      ],
+      "forecast_features": [
+        -0.0029939983934993636,
+        0.005896444201157139,
+        0.012287787887139169
+      ],
+      "scaler_mean": [
+        0.0005299757750361983,
+        0.00934669118336262,
+        0.01027967988985599
+      ],
+      "scaler_scale": [
+        0.011151274607086696,
+        0.006204648859577462,
+        0.00680605857813339
+      ],
+      "coefficients": [
+        -0.00011135850429785272,
+        0.00029063570967040954,
+        3.4418160955264824e-05
+      ],
+      "intercept": 0.00881694571427319
+    },
+    "ridge_ewma": {
+      "raw_forecast": 0.008566990268259843,
+      "feature_names": [
+        "spy_return",
+        "spy_volatility_20d",
+        "cross_asset_dispersion",
+        "ewma_rms"
+      ],
+      "forecast_features": [
+        -0.0029939983934993636,
+        0.005896444201157139,
+        0.012287787887139169,
+        0.00560118755798141
+      ],
+      "scaler_mean": [
+        0.0005299757750361983,
+        0.00934669118336262,
+        0.01027967988985599,
+        0.009406173307046052
+      ],
+      "scaler_scale": [
+        0.011151274607086696,
+        0.006204648859577462,
+        0.00680605857813339,
+        0.006029260671451392
+      ],
+      "coefficients": [
+        -9.908749066832918e-05,
+        -0.0005515663078317675,
+        -4.360151890769099e-05,
+        0.0009113108242982913
+      ],
+      "intercept": 0.00881694571427319
+    },
+    "selected_decays": {
+      "ewma": 0.8,
+      "ridge_ewma": 0.9
+    }
+  }
+]

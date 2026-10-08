@@ -1,5 +1,8 @@
 # My EWMA experiment: protocol fixed on 8 October 2026
 
+**Update on 8 October 2026:** I supplied my preserved original CSV. Its hash exactly matches the original freeze, resolving the original-input availability limitation. A separately saved EWMA run on those verified original bytes selects the same decays and agrees with the reconstruction at the displayed precision. See [the original-data verification report](original_august_verification.md). The earlier reconstruction and October freezes remain unchanged.
+
+
 I chose EWMA because I can compute it from the adjusted-price return history already required by my RMS experiment. I am not claiming that it will outperform the other methods. I compare a standalone EWMA forecast and an EWMA feature added to my existing Ridge model against constant, rolling 20-session RMS and three-feature Ridge baselines.
 
 **Current status, updated 8 October 2026:** Yahoo access was recovered after the initial HTTP 429 failures. I downloaded and validated all eight ETF series and calculated both cutoff experiments. The August file is a reconstructed current-vintage snapshot, not the recovered original bytes. Selected decays, forecasts, historical scores and graphs are now published in [the freeze report](ewma_freeze_2026-10-08.md). The original RMS archive remains unchanged.

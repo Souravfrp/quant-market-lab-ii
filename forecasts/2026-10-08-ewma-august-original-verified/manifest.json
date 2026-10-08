@@ -1,0 +1,58 @@
+{
+  "created_at_utc": "2026-10-08T05:34:25.361723+00:00",
+  "information_cutoff": "2026-08-31",
+  "input_sha256": "637fdeb14b482a12b37abef1fce77f5f94b161c3a92ab28b28948dd3736a4c59",
+  "calendar_sha256": "7a25e7584c8d4e49b26acaa44cf6384aa8f08a87c03c938fb20372bfd343b98a",
+  "provenance": {
+    "price_source": "Yahoo Finance original saved snapshot; original downloader used yfinance auto_adjust=False",
+    "price_column": "Adj Close",
+    "retrieved_at_utc": "Original retrieval timestamp not recorded; original bytes verified against frozen manifest",
+    "input_sha256": "637fdeb14b482a12b37abef1fce77f5f94b161c3a92ab28b28948dd3736a4c59",
+    "calendar_source": "Saved exchange_calendars 4.13.2 XNYS schedule in yahoo_2026-10-08",
+    "uploaded_at_utc": "2026-10-08T05:34:13.062902+00:00",
+    "original_august_byte_match": true
+  },
+  "selected_decays": {
+    "ewma": 0.8,
+    "ridge_ewma": 0.9
+  },
+  "grid": [
+    0.8,
+    0.9,
+    0.94,
+    0.97,
+    0.99
+  ],
+  "seed_size": 20,
+  "tie_rule": "Round validation MAE to 12 decimals, then prefer larger decay.",
+  "selection_target_endpoints": [
+    "2021-01-01",
+    "2022-12-31"
+  ],
+  "assessment_target_endpoints": [
+    "2023-01-01",
+    "2026-08-31"
+  ],
+  "assessment_status": "Development-aware historical comparison; not untouched prospective evidence.",
+  "delayed_gap_note": "Decay selected at gap zero is transferred to delayed windows; separate lead-time superiority is not established.",
+  "publication_note": "Creation time is not publication proof. GitHub publication must precede the target anchoring close.",
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "sklearn": "1.8.0"
+  },
+  "source_sha256": {
+    "src/ewma_signal.py": "56b2e5f8c1a3394a7bd5468e8a8544dc9a1ea17e282b2e6dda7e3c0b7b6a2086",
+    "src/run_ewma_experiment.py": "47428a94a19c08cb06439c5aadf6e23dbd5f5f9ab8a71d029959675ee63b02c0",
+    "src/freeze_forecasts.py": "8dd28dfc40f8085bbff5dfac447c46e9638b149e4f4d44bd740d32420f304a44"
+  },
+  "output_sha256": {
+    "selection_scores.csv": "8e16d074c7d9371e770d84749180bbb88e6c98a10887f0455d2cb81ce7c74f7f",
+    "models.json": "be5f3525bfedd16339d187223233176c0e455eac1e02fe169d7905e76ceffc2d",
+    "forecasts.csv": "7e7a60af3b44492f565e05dfacdf50828416026cd70151aa0f377d7e210a1ea6",
+    "historical_metrics.csv": "e0a87c77b1bd29b4bc130c52adb5476917200251e90cbd0742ecb44ce2b859b5",
+    "signals.csv": "11e64414a511cbaf21cf536cc7477fe5f816276a736965e10dae2697cc820ebe",
+    "historical_comparison.csv": "0b1997fc969bc1ad36fca1ad192a236bb6698077676052df08c0ce53fbf21c5c"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "original_sha256": "637fdeb14b482a12b37abef1fce77f5f94b161c3a92ab28b28948dd3736a4c59",
+  "original_frozen_hash_match": true,
+  "new_sha256": "5011666728c80d854af1eb788186482b65517dd9b9864233f593404ccb23b983",
+  "rows": 2932,
+  "same_dates": true,
+  "same_assets": true,
+  "different_price_cells": 16530,
+  "max_absolute_price_difference": 1.92681884765625,
+  "max_absolute_log_return_difference": 1.5150943032983533e-06,
+  "max_absolute_forecast_difference_decimal": 1.107491410037853e-08,
+  "max_absolute_forecast_difference_percentage_points": 1.107491410037853e-06,
+  "spy_price_example": {
+    "date": "2026-08-13",
+    "original": 777.8800048828125,
+    "new": 775.9531860351562
+  },
+  "interpretation": "Numeric prices differ, not only formatting. Near-proportional price adjustments largely cancel in log-return ratios; cause of provider changes is not independently established.",
+  "source_sha256": "7d146bf387091fcf8f7220795f7e9bb487da36a994015da6704c2a4df1625e95"
+}

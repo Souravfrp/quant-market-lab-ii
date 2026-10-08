@@ -1,12 +1,15 @@
 # Quant Market Lab II — Signal Processing & Prospective Forecasting
 
+**Update on 8 October 2026:** I supplied my preserved original CSV. Its hash exactly matches the original freeze, resolving the original-input availability limitation. A separately saved EWMA run on those verified original bytes selects the same decays and agrees with the reconstruction at the displayed precision. See [the original-data verification report](docs/original_august_verification.md). The earlier reconstruction and October freezes remain unchanged.
+
+
 I am building Quant Market Lab II as a focused continuation of my earlier **Quant AI Market Lab** research project. My academic background is in mathematics and computer and system sciences, with research experience in probability, algorithms, optimization, randomized methods, and geometric reasoning. This project extends that foundation into quantitative finance by asking a narrower forward-looking question: whether carefully constructed market signals contain useful information for prospective risk forecasting when the information set is frozen in advance.
 
 The purpose is not to claim that markets are reliably predictable. The purpose is to design an auditable forecasting experiment in which the cutoff date, target, features, model-selection rules, forecasts, and later evaluation are kept separate enough to expose look-ahead bias and overfitting.
 
 ## Status on 8 October 2026
 
-I have now calculated and published separate EWMA freezes using Yahoo adjusted-close history through **August 31** and **October 7**. The August dataset is explicitly a reconstruction: its bytes do not match the original input hash. The original v0.1 forecasts remain unchanged. My [EWMA freeze report](docs/ewma_freeze_2026-10-08.md) contains the exact target dates, forecasts, historical scores, graphs, source provenance and reproduction commands.
+I have now calculated and published separate EWMA freezes using Yahoo adjusted-close history through **August 31** and **October 7**. The first new August dataset was explicitly a reconstruction. I have since verified and separately rerun the preserved original input, as documented above. The original v0.1 forecasts remain unchanged. My [EWMA freeze report](docs/ewma_freeze_2026-10-08.md) contains the exact target dates, forecasts, historical scores, graphs, source provenance and reproduction commands.
 
 Using the October 7 cutoff, standalone EWMA predicts **0.5287% daily RMS** for both November 2–6 and December 1–7. Ridge with an EWMA feature predicts **0.7430%** and **0.8169%**, respectively. These are prospective five-session risk forecasts, not return-direction predictions or guarantees.
 

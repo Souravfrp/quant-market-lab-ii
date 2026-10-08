@@ -1,5 +1,8 @@
 # My EWMA forecasts frozen on 8 October 2026
 
+**Update on 8 October 2026:** I supplied my preserved original CSV. Its hash exactly matches the original freeze, resolving the original-input availability limitation. A separately saved EWMA run on those verified original bytes selects the same decays and agrees with the reconstruction at the displayed precision. See [the original-data verification report](original_august_verification.md). The earlier reconstruction and October freezes remain unchanged.
+
+
 I recovered access to Yahoo Finance and downloaded the complete adjusted-close history for all eight ETFs. I have now calculated the two EWMA experiments. I chose EWMA because it uses the return data already required by my RMS work. These results do not establish that EWMA is generally better.
 
 ## What I froze

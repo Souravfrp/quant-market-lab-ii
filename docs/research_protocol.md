@@ -1,5 +1,8 @@
 # Research Protocol: Fixed-Cutoff Prospective Forecasting
 
+**Update on 8 October 2026:** I supplied my preserved original CSV. Its hash exactly matches the original freeze, resolving the original-input availability limitation. A separately saved EWMA run on those verified original bytes selects the same decays and agrees with the reconstruction at the displayed precision. See [the original-data verification report](original_august_verification.md). The earlier reconstruction and October freezes remain unchanged.
+
+
 ## Purpose
 
 I am fixing the experimental rules for the first Quant Market Lab II forecasting study before I implement the forecasting model. I want the development history to show what I decided before observing later outcomes, so that I can identify look-ahead bias, avoid redesigning the experiment after seeing results, and evaluate the forecasts honestly.

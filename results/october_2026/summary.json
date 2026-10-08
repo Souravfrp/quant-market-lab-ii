@@ -1,0 +1,29 @@
+{
+  "evaluation_record_date": "2026-10-08",
+  "information_cutoff": "2026-08-31",
+  "return_anchor_date": "2026-09-30",
+  "return_dates": [
+    "2026-10-01",
+    "2026-10-02",
+    "2026-10-05",
+    "2026-10-06",
+    "2026-10-07"
+  ],
+  "n_returns": 5,
+  "asset": "SPY",
+  "actual_rms_decimal": 0.005262523121320901,
+  "closest_method_this_window": "rolling_20d_rms",
+  "input_sha256": "4c2ab479bbac6fc208f82e20ad77d21016f2b78cb9e95f1b62b7d4be157adf31",
+  "provenance_sha256": "24921da2f51cf89db66f30d033439a935198c98a1e31e5272b9e41b124bbe1f3",
+  "forecast_sha256": "6c4fa61869435abd121a997310b6a7aaca8a74a6f566f151b560e2f8e8ed3d71",
+  "frozen_manifest_sha256": "3cce677544ee6fada18f414c31a78ce4a11fce48c7613ee9ced430b154615cd1",
+  "data_status": "Complete five-return window on a rounded public snapshot; original-provider reconciliation remains open.",
+  "sensitivity": {
+    "alternative_last_spy_close": 777.3,
+    "alternative_rms_decimal": 0.005253316209610217,
+    "change_in_rms_decimal": -9.20691171068383e-06,
+    "closest_method": "rolling_20d_rms",
+    "interpretation": "Last-price substitution only; not a reconciled adjusted-close actual."
+  },
+  "interpretation": "One window gives one error per method, not evidence of persistent superiority or trading profitability."
+}

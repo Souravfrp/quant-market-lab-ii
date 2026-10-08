@@ -1,0 +1,46 @@
+{
+  "retrieved_at_utc": "2026-10-08T03:03:05.386846+00:00",
+  "as_of_session": "2026-10-07",
+  "acquisition": "Manually transcribed from the public historical Adj. Close tables inspected on 8 October 2026; not a yfinance/API download.",
+  "price_column": "Adj. Close",
+  "currency": "USD",
+  "display_precision_decimals": 2,
+  "provider_attribution": "Stock Analysis attributes its historical data to S&P Global Market Intelligence.",
+  "sources": {
+    "SPY": "https://stockanalysis.com/etf/spy/history/",
+    "QQQ": "https://stockanalysis.com/etf/qqq/history/",
+    "IWM": "https://stockanalysis.com/etf/iwm/history/",
+    "TLT": "https://stockanalysis.com/etf/tlt/history/",
+    "GLD": "https://stockanalysis.com/etf/gld/history/",
+    "USO": "https://stockanalysis.com/etf/uso/history/",
+    "EEM": "https://stockanalysis.com/etf/eem/history/",
+    "VNQ": "https://stockanalysis.com/etf/vnq/history/"
+  },
+  "input_sha256": "4c2ab479bbac6fc208f82e20ad77d21016f2b78cb9e95f1b62b7d4be157adf31",
+  "role": "Completed-window evaluation snapshot only; never used to refit frozen forecasts.",
+  "spy_cross_check": {
+    "url": "https://chartexchange.com/symbol/nyse-spy/historical/",
+    "column": "Close, not independently verified adjusted close",
+    "earlier_five_prices_agree": true,
+    "october_7_stockanalysis": 777.22,
+    "october_7_chartexchange": 777.3,
+    "agreement": false,
+    "handling": "Main calculation uses all six adjusted prices from Stock Analysis. Separate last-price sensitivity uses 777.30 without claiming a reconciled vendor actual."
+  },
+  "adjustment_note": "TLT September 30 adjusted close is 77.47, while raw close is 77.78. Using the raw anchor would distort its October 1 return.",
+  "limitations": [
+    "Different source/vintage from the frozen Yahoo training snapshot.",
+    "Displayed prices are rounded to cents; calculations are snapshot estimates.",
+    "SPY October 7 close differs between checked sources; vendor reconciliation remains open.",
+    "No independent adjustment audit or full-precision Yahoo-provider replication was performed.",
+    "Other seven ETFs were transcribed from one source only."
+  ],
+  "expected_price_dates": [
+    "2026-09-30",
+    "2026-10-01",
+    "2026-10-02",
+    "2026-10-05",
+    "2026-10-06",
+    "2026-10-07"
+  ]
+}

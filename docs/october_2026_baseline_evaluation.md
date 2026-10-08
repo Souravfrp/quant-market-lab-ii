@@ -69,3 +69,22 @@ Method and data links are listed in [references](references.md). My broader [mat
 ## What I conclude from this window
 
 Rolling-20 was closer than Ridge and the constant baseline in the first October window on the saved snapshot, and its ranking survives the checked last-price discrepancy. Ridge's better average historical result did not guarantee that it would win this individual window. I need additional prospective windows to assess consistency. This result does not establish return direction, future ETF ranking, a profitable trading strategy or that EWMA will improve the forecasts.
+
+## Yahoo access and source comparison recorded later on 8 October 2026
+
+My original Market Lab ingestion code used Yahoo Finance through `yfinance`, with `auto_adjust=False` and the `Adj Close` column. For this October evaluation I retained one complete Stock Analysis adjusted-price snapshot rather than assembling a series from partially verified sources.
+
+During the subsequent Yahoo check, direct requests for the historical web page returned HTTP 429 (“Too Many Requests”). The accessible cached historical table ended on October 5. This was an access limitation in this session, not evidence that Yahoo lacked October 6 or October 7 data. I did not test a fresh `yfinance` download, so I do not claim its API was unavailable.
+
+| Date, 2026 | Stock Analysis Adj. Close (USD) | Yahoo evidence available in this check | What I can conclude |
+|---|---:|---|---|
+| September 30 | 762.63 | Cached historical Close and Adj Close: 762.63 | Displayed adjusted prices match |
+| October 1 | 763.99 | Cached historical Close and Adj Close: 763.99 | Displayed adjusted prices match |
+| October 2 | 769.64 | Cached historical Close and Adj Close: 769.64 | Displayed adjusted prices match |
+| October 5 | 774.83 | Cached historical Close and Adj Close: 774.83 | Displayed adjusted prices match |
+| October 6 | 779.09 | Historical Close and Adj Close not directly verified | Adjusted-price agreement remains unverified |
+| October 7 | 777.22 | Yahoo quote page: regular-session Close 777.22 | Close matches; historical Adj Close remains unverified |
+
+Sources inspected: [Yahoo SPY cached historical table](https://finance.yahoo.com/quote/SPY/history/?p=SPY), [Yahoo SPY quote](https://ca.finance.yahoo.com/quote/SPY/), and [Stock Analysis historical adjusted prices](https://stockanalysis.com/etf/spy/history/). The quote's previous-close implication for October 6 is not independent verification of that date's adjusted close.
+
+I found no confirmed Yahoo–Stock Analysis price mismatch in the entries I verified, but I cannot say that all six adjusted prices agree. The eight-cent October 7 discrepancy discussed above is with **ChartExchange**, not Yahoo. I retain the existing RMS and forecast-error results, explicitly conditional on the archived Stock Analysis snapshot. I do not replace an adjusted-price value with a quote or treat an access problem as a missing market observation. Full-precision original-provider reconciliation remains open; any later snapshot and comparison will be recorded separately.

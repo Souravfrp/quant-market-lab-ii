@@ -14,6 +14,8 @@ My [evaluation note](docs/october_2026_baseline_evaluation.md) explains the six 
 
 **Data qualification:** I transcribed displayed adjusted closes from Stock Analysis, rounded to cents. SPY's October 7 price differs from ChartExchange (777.22 versus 777.30). A last-price sensitivity gives RMS 0.5253% and leaves the closest method unchanged. This is a completed-window evaluation on the archived snapshot; full-precision replication with the original Yahoo provider and reconciliation remain open.
 
+My [dated Yahoo access and comparison note](docs/october_2026_baseline_evaluation.md#yahoo-access-and-source-comparison-recorded-later-on-8-october-2026) records matching adjusted closes for September 30 and October 1, 2 and 5, a matching October 7 regular close, and unverified Yahoo adjusted entries for October 6 and 7. The historical web page returned HTTP 429; this does not show that Yahoo lacked those observations or that a fresh `yfinance` download would fail.
+
 I keep the [October 7 partial-window note](docs/evaluation_status_2026-10-07.md) as a dated record of what was available then. I have not changed the frozen forecast archive or August training data. November and December outcomes remain pending.
 
 The signal-processing extension remains a [documented EWMA experiment plan](docs/signal_processing_plan.md), not an implemented model or a new forecast. It will be evaluated separately from v0.1.

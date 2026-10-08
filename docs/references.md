@@ -37,3 +37,8 @@ The new [price provenance JSON](../results/evaluation_inputs/spy_october_partial
 - [Snapshot and provenance](../results/evaluation_inputs/etf_october_2026_provenance.json), [evaluation equations and interpretation](october_2026_baseline_evaluation.md), [scoring code](../src/evaluate_october_2026.py), and [figure code](../src/plot_october_2026.py). The original [forecast manifest](../forecasts/2026-09-30-v0.1/manifest.json) supplies the hash used to check forecast preservation.
 
 These source links support the archived price snapshot, not future performance claims. Original-provider replication and vendor reconciliation remain open.
+
+
+## Method review recorded 8 October 2026
+
+The [signal-method review](signal_processing_methods_review.md#references-and-status) lists primary NIST, pandas, SciPy, PyWavelets, statsmodels and arch documentation alongside the formulations and requirements. Reviewed methods are distinguished from implemented experiments.

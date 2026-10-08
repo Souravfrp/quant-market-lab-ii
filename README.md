@@ -20,6 +20,10 @@ I keep the [October 7 partial-window note](docs/evaluation_status_2026-10-07.md)
 
 The signal-processing extension remains a [documented EWMA experiment plan](docs/signal_processing_plan.md), not an implemented model or a new forecast. It will be evaluated separately from v0.1.
 
+
+
+My [method review and execution requirements](docs/signal_processing_methods_review.md) explains alternative formulations and which requirements my existing daily dataset satisfies. EWMA is the first choice because it closely extends rolling RMS; this is not a claim of better performance. Alternatives are reviewed, not claimed as implemented.
+
 ## Research Question
 
 The initial question is:

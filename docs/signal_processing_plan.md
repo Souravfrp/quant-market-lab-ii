@@ -103,3 +103,8 @@ I will save the data and source fingerprints, candidate grid, split endpoints, i
 ## Work completed in this update
 
 I have recorded the plan, clarified the timing, preserved a five-price partial-October evaluation snapshot with provenance, and added reproducible status figures. I have not implemented the EWMA forecasting experiment. The October plots are observations and frozen-baseline values, not results of the proposed signal model.
+
+
+## Method review added 8 October 2026
+
+My [method review](signal_processing_methods_review.md) describes alternative formulations, what each estimates and execution requirements before explaining why I selected EWMA first. Several alternatives can also use my existing observations without extra samples. This is a choice based on alignment with rolling RMS and fewer modelling decisions, not measured superiority. Implementation remains pending.

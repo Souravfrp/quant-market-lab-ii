@@ -177,3 +177,8 @@ I have now executed the separately documented EWMA protocol using a new complete
 The [EWMA release report](ewma_freeze_2026-10-08.md) links both numerical freezes, matched historical scores, figures and reproducible commands. Standalone decay 0.80 and Ridge-feature decay 0.90 were selected using only the predeclared 2021–2022 target endpoints; both cutoffs use identical selection scores. Later historical assessment is development-aware. September/October reconstructed comparisons are retrospective. The November and December freezes were published before their anchoring closes, with the GitHub commit recorded as external evidence.
 
 I preserve the original v0.1 archive unchanged and score each new freeze without changing its predictions after observing outcomes. Current adjusted-price history has data-vintage limitations; different cutoffs do not isolate a model effect. Exact equations, initialization, eligibility and complexity are in [the implementation protocol](ewma_experiment.md).
+
+
+## Interpretation boundaries
+
+My [model scope and limitations](model_scope_and_limitations.md) states which questions each published experiment can address and which claims its evidence does not support. I distinguish prediction errors from a general ranking of models, historical assessment from prospective outcomes, and RMS magnitude from direction or profitability. Additional targets or stronger claims require separate documented experiments.

@@ -156,3 +156,18 @@ I reproduce this figure with `python -m src.plot_future_forecasts`. The script r
 
 The existing October–December forecast record uses the fixed August 31 cutoff. A proposed monthly-update experiment would refresh the information cutoff each month and predict the next five sessions at gap zero. I have not generated that new experiment here. Its outputs must be recorded separately with their actual creation times, without rewriting the frozen release.
 
+
+
+## What my models can and cannot answer
+
+I use these models to forecast SPY return magnitude over specified five-session windows. I keep the conclusions within the target and the evidence I have.
+
+| Question | What I can report | What would require further evidence |
+|---|---|---|
+| How large might daily returns be? | A five-return RMS point forecast. | Calibrated prediction intervals or tail-loss probabilities. |
+| Which method was closest? | Errors for a completed window and matched historical comparisons. | A consistent ranking across more prospective windows. |
+| Did EWMA improve the experiment? | Its measured historical errors against the baselines. | Robust improvement at the future lead times and in different regimes. |
+| Will SPY rise, or which ETF will outperform? | These models do not answer direction or ranking. | Separate return targets and validated experiments. |
+| Does this imply whole-month risk or a profitable strategy? | Neither follows from the current five-session RMS forecasts. | A monthly target or a separate trading study with costs and execution. |
+
+My [detailed scope and limitations](docs/model_scope_and_limitations.md) distinguishes historical comparisons, retrospective calculations and prospective freezes. It explains the mathematics, EWMA persistence assumption, data-vintage qualification and what I would need before making stronger claims.

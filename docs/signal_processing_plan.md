@@ -2,6 +2,10 @@
 
 Planning record: 7 October 2026, before the US regular session for that date. This is a new research plan, not a backdated August decision. I have not fitted or selected the EWMA extension, generated its forecasts, or established that it improves accuracy.
 
+## Implementation update: 8 October 2026
+
+The causal recurrence and cutoff-specific experiment runner are now implemented and tested. Numerical fitting and forecast publication remain blocked by the missing complete adjusted-price history. The [fixed experiment protocol](ewma_experiment.md) documents the implemented seed, decay grid, validation rule, two cutoffs, algorithm complexity and commands. This original planning record is retained as dated context.
+
 ## What I want to find out
 
 I want to test whether weighting recent squared SPY returns more heavily helps forecast the RMS of the next five returns. I already have a rolling-20-return RMS baseline and a Ridge model. The new experiment should show whether a different weighting scheme adds information, rather than just adding a more complicated name.

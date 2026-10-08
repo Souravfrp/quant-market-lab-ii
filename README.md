@@ -6,6 +6,11 @@ The purpose is not to claim that markets are reliably predictable. The purpose i
 
 ## Status on 8 October 2026
 
+I have implemented the causal EWMA signal and the separate August 31 / October 7 comparison and freeze pipeline. **Numerical EWMA forecasts remain pending the complete adjusted-price history; no decay has been selected and no forecast values have been frozen.** My [EWMA experiment document](docs/ewma_experiment.md) gives the mathematics, validation rule, algorithm complexity, input requirements, run commands and limitations. The original RMS archive is unchanged.
+
+![EWMA candidate weights and half-lives: mathematical illustration only](results/figures/ewma_weights.png)
+
+
 I have completed the first October baseline evaluation on a saved public adjusted-price snapshot. SPY's observed five-return RMS for October 1, 2, 5, 6 and 7 is **0.5263%**. The frozen rolling-20 forecast (**0.5780%**) was closest; Ridge predicted **0.8118%**, and the constant baseline **0.8791%**. All three overestimated this window's RMS. One window does not establish that a method is consistently better.
 
 ![Completed October baseline evaluation](results/figures/october_2026_baseline_evaluation.png)
@@ -18,7 +23,7 @@ My [dated Yahoo access and comparison note](docs/october_2026_baseline_evaluatio
 
 I keep the [October 7 partial-window note](docs/evaluation_status_2026-10-07.md) as a dated record of what was available then. I have not changed the frozen forecast archive or August training data. November and December outcomes remain pending.
 
-The signal-processing extension remains a [documented EWMA experiment plan](docs/signal_processing_plan.md), not an implemented model or a new forecast. It will be evaluated separately from v0.1.
+The signal-processing extension now has a [tested implementation and fixed experiment protocol](docs/ewma_experiment.md). Fitting and numerical forecasts remain pending complete historical inputs. It will be evaluated separately from v0.1.
 
 
 
@@ -81,7 +86,7 @@ The project is designed to make the mathematics visible. The documentation will 
 
 ### v0.1 — Prospective baseline
 
-I have implemented and run the baseline forecasting pipeline. My [forecast record](forecasts/2026-09-30-v0.1/forecasts.csv), [input and source fingerprints](forecasts/2026-09-30-v0.1/manifest.json), [fitted models](forecasts/2026-09-30-v0.1/models.json), and [historical diagnostic scores](forecasts/2026-09-30-v0.1/historical_metrics.csv) are preserved together. The signal-processing extension remains future work. Reproduction commands and limitations are in [the release specification](docs/forecast_freeze_v0_1.md).
+I have implemented and run the baseline forecasting pipeline. My [forecast record](forecasts/2026-09-30-v0.1/forecasts.csv), [input and source fingerprints](forecasts/2026-09-30-v0.1/manifest.json), [fitted models](forecasts/2026-09-30-v0.1/models.json), and [historical diagnostic scores](forecasts/2026-09-30-v0.1/historical_metrics.csv) are preserved together. The EWMA implementation is available; fitting and numerical forecast publication remain pending validated data. Reproduction commands and limitations are in [the release specification](docs/forecast_freeze_v0_1.md).
 
 ### v1.0 — Signal processing & prospective forecasting
 

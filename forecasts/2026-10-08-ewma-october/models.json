@@ -1,0 +1,158 @@
+[
+  {
+    "target_month": "2026-11",
+    "return_anchor_date": "2026-10-30",
+    "target_start": "2026-11-02",
+    "target_end": "2026-11-06",
+    "gap_sessions": 17,
+    "status": "prospective_pending_publication",
+    "training_examples": 2916,
+    "last_training_target_end": "2026-10-07",
+    "last_training_origin": "2026-09-04",
+    "ridge_expanding": {
+      "raw_forecast": 0.00787937868144493,
+      "feature_names": [
+        "spy_return",
+        "spy_volatility_20d",
+        "cross_asset_dispersion"
+      ],
+      "forecast_features": [
+        -0.002403193522234824,
+        0.006468441850344851,
+        0.0061272049272708675
+      ],
+      "scaler_mean": [
+        0.0005288814876689332,
+        0.009321415696232741,
+        0.010379786528831897
+      ],
+      "scaler_scale": [
+        0.011088620867770835,
+        0.006135882426503325,
+        0.006842446824864003
+      ],
+      "coefficients": [
+        -0.000371277070262059,
+        0.0017648440463212491,
+        0.00026348005934017326
+      ],
+      "intercept": 0.00876554941098462
+    },
+    "ridge_ewma": {
+      "raw_forecast": 0.007430097445563173,
+      "feature_names": [
+        "spy_return",
+        "spy_volatility_20d",
+        "cross_asset_dispersion",
+        "ewma_rms"
+      ],
+      "forecast_features": [
+        -0.002403193522234824,
+        0.006468441850344851,
+        0.0061272049272708675,
+        0.005820802289969588
+      ],
+      "scaler_mean": [
+        0.0005288814876689332,
+        0.009321415696232741,
+        0.010379786528831897,
+        0.009376098585335429
+      ],
+      "scaler_scale": [
+        0.011088620867770835,
+        0.006135882426503325,
+        0.006842446824864003,
+        0.005963236773799743
+      ],
+      "coefficients": [
+        -0.0003200444599447167,
+        -0.0017831804427079815,
+        -5.6851685238576915e-05,
+        0.00383180173038753
+      ],
+      "intercept": 0.00876554941098462
+    },
+    "selected_decays": {
+      "ewma": 0.8,
+      "ridge_ewma": 0.9
+    }
+  },
+  {
+    "target_month": "2026-12",
+    "return_anchor_date": "2026-11-30",
+    "target_start": "2026-12-01",
+    "target_end": "2026-12-07",
+    "gap_sessions": 37,
+    "status": "prospective_pending_publication",
+    "training_examples": 2896,
+    "last_training_target_end": "2026-10-07",
+    "last_training_origin": "2026-08-07",
+    "ridge_expanding": {
+      "raw_forecast": 0.008325162392557773,
+      "feature_names": [
+        "spy_return",
+        "spy_volatility_20d",
+        "cross_asset_dispersion"
+      ],
+      "forecast_features": [
+        -0.002403193522234824,
+        0.006468441850344851,
+        0.0061272049272708675
+      ],
+      "scaler_mean": [
+        0.0005339076317130826,
+        0.009334535846671592,
+        0.0103737312556993
+      ],
+      "scaler_scale": [
+        0.011118997527072036,
+        0.006153708101212014,
+        0.0068499255129942675
+      ],
+      "coefficients": [
+        -0.000130608143254394,
+        0.0008722254609464731,
+        0.00011234048279245273
+      ],
+      "intercept": 0.008766545767901203
+    },
+    "ridge_ewma": {
+      "raw_forecast": 0.008169491348404424,
+      "feature_names": [
+        "spy_return",
+        "spy_volatility_20d",
+        "cross_asset_dispersion",
+        "ewma_rms"
+      ],
+      "forecast_features": [
+        -0.002403193522234824,
+        0.006468441850344851,
+        0.0061272049272708675,
+        0.005820802289969588
+      ],
+      "scaler_mean": [
+        0.0005339076317130826,
+        0.009334535846671592,
+        0.0103737312556993,
+        0.009393425306793452
+      ],
+      "scaler_scale": [
+        0.011118997527072036,
+        0.006153708101212014,
+        0.0068499255129942675,
+        0.005979574276528862
+      ],
+      "coefficients": [
+        -0.0001128118326990956,
+        -0.000351513602461993,
+        1.0123376478275147e-06,
+        0.001322145844654011
+      ],
+      "intercept": 0.008766545767901203
+    },
+    "selected_decays": {
+      "ewma": 0.8,
+      "ridge_ewma": 0.9
+    }
+  }
+]

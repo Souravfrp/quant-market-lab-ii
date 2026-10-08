@@ -4,17 +4,19 @@ I am building Quant Market Lab II as a focused continuation of my earlier **Quan
 
 The purpose is not to claim that markets are reliably predictable. The purpose is to design an auditable forecasting experiment in which the cutoff date, target, features, model-selection rules, forecasts, and later evaluation are kept separate enough to expose look-ahead bias and overfitting.
 
-## Status on 7 October 2026
+## Status on 8 October 2026
 
-I am starting the signal-processing extension with a [documented EWMA experiment plan](docs/signal_processing_plan.md). I have not fitted that extension or generated its forecasts. The existing October–December archive contains Ridge and two baseline forecasts.
+I have completed the first October baseline evaluation on a saved public adjusted-price snapshot. SPY's observed five-return RMS for October 1, 2, 5, 6 and 7 is **0.5263%**. The frozen rolling-20 forecast (**0.5780%**) was closest; Ridge predicted **0.8118%**, and the constant baseline **0.8791%**. All three overestimated this window's RMS. One window does not establish that a method is consistently better.
 
-As of the 6 October US close, four returns in the October 1–7 target window are observable. The fifth needs the 7 October close. My [dated status note](docs/evaluation_status_2026-10-07.md) explains the partial window, the final five-return calculation, data sources and timing. I do not score the original five-return forecast against a four-return actual.
+![Completed October baseline evaluation](results/figures/october_2026_baseline_evaluation.png)
 
-![August cutoff, September evaluation and partial October observations](results/figures/evaluation_status_2026-10-07.png)
+My [evaluation note](docs/october_2026_baseline_evaluation.md) explains the six adjusted prices, five returns, RMS, signed and absolute errors, source records, mathematical definitions, computational cost and reproduction commands. The [saved output tables](results/october_2026/) give the exact numbers and fingerprints. The additional eight-ETF chart in that note is descriptive; the frozen forecasts are for SPY.
 
-The chart shows saved historical and September comparisons, the frozen October predictions, and four October daily returns. October's final actual is left pending. The prices used for this partial view are in a separate evaluation snapshot with provenance; they are not added to the frozen August training file.
+**Data qualification:** I transcribed displayed adjusted closes from Stock Analysis, rounded to cents. SPY's October 7 price differs from ChartExchange (777.22 versus 777.30). A last-price sensitivity gives RMS 0.5253% and leaves the closest method unchanged. This is a completed-window evaluation on the archived snapshot; full-precision replication with the original Yahoo provider and reconciliation remain open.
 
-I will test causal exponential smoothing against the existing baselines, using the same five-return RMS target and matched historical dates. My [mathematical notes](docs/figure_methodology.md#signal-processing-extension-recorded-7-october-2026) explain why this is my first signal experiment and link the recursion, initialization, validation plan and operation counts. Historical comparisons and a later prospective signal forecast will be recorded separately from v0.1.
+I keep the [October 7 partial-window note](docs/evaluation_status_2026-10-07.md) as a dated record of what was available then. I have not changed the frozen forecast archive or August training data. November and December outcomes remain pending.
+
+The signal-processing extension remains a [documented EWMA experiment plan](docs/signal_processing_plan.md), not an implemented model or a new forecast. It will be evaluated separately from v0.1.
 
 ## Research Question
 
@@ -126,7 +128,7 @@ The reconstruction writes to `results/figures/rebuilt/`. The three selected figu
 
 ![October–December forecasts using the August 31 information cutoff](results/figures/october_december_forecasts.png)
 
-I show the nine stored predictions for the first five scheduled sessions of October, November and December. All use the same August 31 cutoff. Each point is a predicted daily RMS over its labelled five-session window, not a daily path, price direction or whole-month risk. Actual outcomes are pending as of September 30, 2026. The rolling baseline repeats because its information window is fixed; the direct Ridge and constant models use gap-specific training labels.
+I show the nine stored predictions for the first five scheduled sessions of October, November and December. All use the same August 31 cutoff. Each point is a predicted daily RMS over its labelled five-session window, not a daily path, price direction or whole-month risk. This chart preserves the forecast-only view published on September 30, 2026. October's observed outcome is now evaluated separately above; November and December outcomes remain pending. The rolling baseline repeats because its information window is fixed; the direct Ridge and constant models use gap-specific training labels.
 
 I reproduce this figure with `python -m src.plot_future_forecasts`. The script reads the preserved forecast CSV, checks the nine rows and their cutoffs and windows, and plots the stored values without refitting. Calendar and method sources are listed in [references](docs/references.md).
 

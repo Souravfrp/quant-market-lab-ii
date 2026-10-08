@@ -28,3 +28,12 @@ These are the sources used for this documentation update. I have not copied expl
 11. [ChartExchange: SPY historical prices](https://chartexchange.com/symbol/nyse-spy/historical/). Historical-table close prices cross-checked for those same five dates. Agreement of displayed closes does not verify all adjustment conventions or eliminate later data revisions.
 
 The new [price provenance JSON](../results/evaluation_inputs/spy_october_partial_2026-10-06_provenance.json) describes acquisition and limitations. The plotting script saves SHA-256 fingerprints of its CSV inputs alongside the derived summary. The September value remains the existing repository result, with its existing researcher-supplied provenance; I do not replace it with a differently rounded source. These references support definitions and provenance, not a claim of external validation or forecasting superiority.
+
+
+## Sources and reproducibility for the completed October evaluation (8 October 2026)
+
+- Stock Analysis historical tables, displayed **Adj. Close**: [SPY](https://stockanalysis.com/etf/spy/history/), [QQQ](https://stockanalysis.com/etf/qqq/history/), [IWM](https://stockanalysis.com/etf/iwm/history/), [TLT](https://stockanalysis.com/etf/tlt/history/), [GLD](https://stockanalysis.com/etf/gld/history/), [USO](https://stockanalysis.com/etf/uso/history/), [EEM](https://stockanalysis.com/etf/eem/history/), [VNQ](https://stockanalysis.com/etf/vnq/history/). I inspected six dates per ETF on October 8 and transcribed the rounded displayed values. The pages attribute historical data to S&P Global Market Intelligence.
+- [ChartExchange SPY historical Close](https://chartexchange.com/symbol/nyse-spy/historical/). Earlier five closes agree; October 7 differs (777.30 versus 777.22). This is a cross-check with a recorded discrepancy, not confirmation of adjusted-price agreement.
+- [Snapshot and provenance](../results/evaluation_inputs/etf_october_2026_provenance.json), [evaluation equations and interpretation](october_2026_baseline_evaluation.md), [scoring code](../src/evaluate_october_2026.py), and [figure code](../src/plot_october_2026.py). The original [forecast manifest](../forecasts/2026-09-30-v0.1/manifest.json) supplies the hash used to check forecast preservation.
+
+These source links support the archived price snapshot, not future performance claims. Original-provider replication and vendor reconciliation remain open.

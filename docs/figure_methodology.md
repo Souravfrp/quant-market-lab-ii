@@ -124,3 +124,8 @@ For a gap-zero fit at origin $t$, training labels satisfy $s+5\le t$. With $s_t=
 If I compare two methods on matched target windows, the primary MAE improvement is $100(MAE_{baseline}-MAE_{candidate})/MAE_{baseline}$ percent, provided the baseline MAE is nonzero. It is an error reduction, not a return or investment performance measure. A small reduction does not establish statistical significance. The validation stage selects lambda; later historical assessment is reported separately and remains development-aware.
 
 For the incomplete October window, the [dated status note](evaluation_status_2026-10-07.md) distinguishes $\sqrt{S_4/4}$ from the final $\sqrt{(S_4+r_5^2)/5}$. Both equations are needed to prevent a four-return description being mistaken for the frozen five-return target. The plot leaves the fifth return unavailable rather than assuming zero.
+
+
+## Completed October scoring recorded 8 October 2026
+
+The [completed-window note](october_2026_baseline_evaluation.md) now scores the five-return target using six prices from one saved adjusted-price source. It defines RMS separately from demeaned standard deviation, uses signed error (forecast minus observed) and absolute error, records the original forecast hash, and reports a last-price sensitivity for the vendor discrepancy. Each method has one forecast error for this window, not five independent daily forecast errors. The partial October 7 record remains a dated historical note. The new figures and tables do not change frozen forecasts or implement EWMA.

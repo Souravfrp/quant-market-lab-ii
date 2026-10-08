@@ -8,7 +8,7 @@
     "plot_sha256": {
       "signals.png": "be495feaa3a882f8b6c776d8405c6ca1f63572447a637f1879a332c426f11304",
       "historical_mae.png": "ab10dde135f0f2ae3f3e1957a8a974fdec4970dce333738817868adff2142c23",
-      "forecasts.png": "cbb528c0cc1ad53158d71cd28927cd96a2e2fa526673b7384069e4c04d385140"
+      "forecasts.png": "e8fcdf620cab633d81c81bbabf4749fa37f615dfd7e8b691e1f47efac706f72d"
     }
   },
   "forecasts/2026-10-08-ewma-october": {
@@ -20,7 +20,7 @@
     "plot_sha256": {
       "signals.png": "e27f023adbffbf88e41309ec385bb6f9e42c495e5023e3a15f5f1858229e5000",
       "historical_mae.png": "ab10dde135f0f2ae3f3e1957a8a974fdec4970dce333738817868adff2142c23",
-      "forecasts.png": "c99ad7f95ac2e1a9aaee0939b6d1e9b59d45f51c7916ea341d255e35c9251d5d"
+      "forecasts.png": "45a310080d0ec86c904d380ed37c9e44981c2c377a1619ecfb05df25015637df"
     }
   },
   "cross_cutoff_validation_scores_identical": true

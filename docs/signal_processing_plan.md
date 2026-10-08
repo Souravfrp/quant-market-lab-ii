@@ -4,7 +4,7 @@ Planning record: 7 October 2026, before the US regular session for that date. Th
 
 ## Implementation update: 8 October 2026
 
-The causal recurrence and cutoff-specific experiment runner are now implemented and tested. Numerical fitting and forecast publication remain blocked by the missing complete adjusted-price history. The [fixed experiment protocol](ewma_experiment.md) documents the implemented seed, decay grid, validation rule, two cutoffs, algorithm complexity and commands. This original planning record is retained as dated context.
+The causal recurrence and cutoff-specific experiment runner are implemented and tested. Yahoo access was recovered on 8 October; fitting is complete and the two numerical forecasts are published. See [the freeze report](ewma_freeze_2026-10-08.md). The August dataset is a reconstruction, and September/October comparisons are retrospective. The [fixed experiment protocol](ewma_experiment.md) documents the implemented seed, decay grid, validation rule, two cutoffs, algorithm complexity and commands. This original planning record is retained as dated context.
 
 ## What I want to find out
 

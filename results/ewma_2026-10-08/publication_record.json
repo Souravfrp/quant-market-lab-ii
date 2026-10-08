@@ -1,0 +1,14 @@
+{
+  "repository": "Souravfrp/quant-market-lab-ii",
+  "freeze_commit": "4d6c8efdc3a3739f645e654e1acd701f48de90b2",
+  "commit_time_utc": "2026-10-08T05:18:22Z",
+  "data_commit": "2c6741475293e81b80d79ab69fd3525c4b368290",
+  "archives": [
+    "forecasts/2026-10-08-ewma-august-reconstructed",
+    "forecasts/2026-10-08-ewma-october"
+  ],
+  "interpretation": "Published 8 October 2026, before the 30 October and 30 November target anchoring closes. September/October reconstructions are retrospective.",
+  "original_v0_1_archive": "Unchanged",
+  "publication_evidence_url": "https://github.com/Souravfrp/quant-market-lab-ii/commit/4d6c8efdc3a3739f645e654e1acd701f48de90b2",
+  "csv_status_note": "prospective_pending_publication records creation-time status. The commit linked here supplies the subsequent publication evidence."
+}

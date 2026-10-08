@@ -28,8 +28,8 @@ def plot(folder):
         ax.plot(b.target_month,100*b.forecast_decimal,marker='o',label=method)
     ax.set(title=f"Five-session RMS forecasts; information cutoff {forecasts.information_cutoff.iloc[0]}",ylabel='Predicted daily RMS (%)',xlabel='Target month; see CSV for exact dates and retrospective/prospective status')
     if (forecasts.target_month<'2026-11').any():
-        ax.text(.02,.02,'Sep/Oct: retrospective reconstruction; Nov/Dec: future targets',transform=ax.transAxes,fontsize=9)
-    ax.legend();fig.tight_layout();fig.savefig(figures/'forecasts.png',dpi=160);plt.close(fig)
+        fig.text(.5,.01,'Sep/Oct: retrospective reconstruction; Nov/Dec: future targets',ha='center',fontsize=9)
+    ax.legend();fig.tight_layout(rect=(0,.06,1,1));fig.savefig(figures/'forecasts.png',dpi=160);plt.close(fig)
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('folder',type=Path)

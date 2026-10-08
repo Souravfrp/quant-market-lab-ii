@@ -2,9 +2,9 @@
 
 I chose EWMA because I can compute it from the adjusted-price return history already required by my RMS experiment. I am not claiming that it will outperform the other methods. I compare a standalone EWMA forecast and an EWMA feature added to my existing Ridge model against constant, rolling 20-session RMS and three-feature Ridge baselines.
 
-**Current status:** the recurrence and experiment runner are implemented and tested. The original historical adjusted-price CSV is unavailable in this workspace and repository; Yahoo requests returned HTTP 429. I have not selected a decay, computed market forecasts, or frozen numerical EWMA results. Synthetic test fixtures verify code only. My previous RMS forecasts and October evaluation remain separate and unchanged.
+**Current status, updated 8 October 2026:** Yahoo access was recovered after the initial HTTP 429 failures. I downloaded and validated all eight ETF series and calculated both cutoff experiments. The August file is a reconstructed current-vintage snapshot, not the recovered original bytes. Selected decays, forecasts, historical scores and graphs are now published in [the freeze report](ewma_freeze_2026-10-08.md). The original RMS archive remains unchanged.
 
-The original August baseline used Yahoo Finance adjusted-close data. The completed October baseline evaluation used the saved Stock Analysis adjusted-price snapshot because Yahoo access was blocked. These are distinct records. I must recover the original Yahoo history for an identical August replication, and use a documented consistent full adjusted-price series for the October EWMA update; I will not silently splice the six-price snapshot into the history.
+The original August baseline used Yahoo Finance adjusted-close data. The completed October baseline evaluation used the saved Stock Analysis adjusted-price snapshot because Yahoo access was blocked. These are distinct records. Both new EWMA runs use the complete Yahoo adjusted-close snapshot downloaded on 8 October; I did not splice the six-price Stock Analysis snapshot into that history. The new August bytes differ from the original input hash and are explicitly labeled reconstructed.
 
 ![Candidate weighting kernels and half-lives; mathematical illustration only](../results/figures/ewma_weights.png)
 
@@ -69,7 +69,7 @@ For N sessions and A assets, return computation costs O(NA). Each EWMA stream co
 
 ## Reproducible input and run instructions
 
-Install numpy, pandas, scikit-learn and matplotlib. Run from the repository root with Python 3.10 or newer. Prices must be CSV with Date and the eight ticker columns. Provide separate immutable files ending exactly at each cutoff. The calendar CSV has a Date column containing the complete actual exchange-session schedule covering the entire input history and through 7 December 2026. Do not substitute unverified Monday–Friday dates.
+Install the pinned packages in requirements-ewma.txt; exchange-calendars is also needed to reproduce input assembly. Run from the repository root with Python 3.10 or newer. Prices must be CSV with Date and the eight ticker columns. Provide separate immutable files ending exactly at each cutoff. The calendar CSV has a Date column containing the complete actual exchange-session schedule covering the entire input history and through 7 December 2026. Do not substitute unverified Monday–Friday dates.
 
 For each input create a provenance JSON with price_source, price_column, retrieved_at_utc, input_sha256 and calendar_source. Record the actual provider and adjusted-price field; do not describe raw Close as Adjusted Close. Obtain the file hash with `sha256sum`. This records provenance supplied by the researcher; the code cannot certify the provider's adjustments.
 
@@ -85,7 +85,7 @@ The original-August flag requires the original frozen snapshot hash. If that fil
 
 ## Figures and limits
 
-The plotting code generates observed signal curves, historical MAE bars and future-window forecast graphs separately for each cutoff. Forecast markers are five-session summaries, not a daily path; connecting lines guide the eye only. Future actuals are not drawn. Exact dates, units, lead times and retrospective/prospective labels are in forecasts.csv. No market forecast chart is published until real inputs pass validation.
+The plotting code generates observed signal curves, historical MAE bars and future-window forecast graphs separately for each cutoff. Forecast markers are five-session summaries, not a daily path; connecting lines guide the eye only. Future actuals are not drawn. Exact dates, units, lead times and retrospective/prospective labels are in forecasts.csv. Real inputs passed validation and the market forecast charts are published in the freeze report.
 
 EWMA cannot establish which ETF will outperform, predict return direction, guarantee smaller future errors, measure causal relationships or provide calibrated tail-loss probabilities. I forecast SPY RMS only. Two cutoffs cannot establish a robust model ranking, and historical errors do not supply calibrated prediction intervals. For future scoring I retain the prediction unchanged and evaluate against consistent-source adjusted-price returns after all five target sessions have completed.
 
@@ -101,4 +101,4 @@ See [the methods review](signal_processing_methods_review.md) for alternatives a
 
 ## Verification on 8 October 2026
 
-All 21 repository unit tests passed. A temporary synthetic integration fixture also exercised decay selection, historical assessment, forecast export, manifest hash checks, all three plot outputs and overwrite refusal. The fixture was removed and no synthetic market results were published. Real-data reproduction remains pending.
+All 21 repository unit tests passed. A temporary synthetic integration fixture also exercised decay selection, historical assessment, forecast export, manifest hash checks, all three plot outputs and overwrite refusal. The fixture was removed and no synthetic market results were published. Real-data checks have now also passed: complete calendar agreement, saved input/output hashes, completed-label boundaries, parameter minima and identical selection scores across cutoffs. The results and check record are linked in the freeze report.

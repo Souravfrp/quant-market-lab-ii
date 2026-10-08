@@ -1,0 +1,12 @@
+{
+  "input_price_sha256": "67ace84a32c6627e9e9ade14c85d53888b70ee3bf636efe7bd12866eed695740",
+  "august_manifest_sha256": "d16ddb548b1ba974843552ef1d6678d6d9fe4aa94fa25449882e98bd2b412239",
+  "october_manifest_sha256": "172b0039aec8e03adb0ac0b09b9509ba323f031dbce1c14d4afa329456bb8d3a",
+  "source_sha256": "b1bfe744348fc4fbc1ff4575f97e5c78cf0024ede4b5c5f9a220432fe23b8088",
+  "output_sha256": {
+    "august_known_outcomes.csv": "bf9646fc4cdc0ad48a0b477af0c24b7698ebb1bba365e5fcaa1400556625893d",
+    "future_cutoff_comparison.png": "5d2a7861e09493031d431e1b94c5ddf864a40f168a20b8965eaa48a7c62692b3",
+    "cutoff_comparison.csv": "1d2cf534c24297fd7d2826eea9a9fae7e6e46b7a40014293c0a852cd3a0b2a89",
+    "retrospective_known_outcomes.png": "08fc4f0ed7b6a8f9569fdbb830ced58ea04e186406c80e7a11c01d724202ff04"
+  }
+}

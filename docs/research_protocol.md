@@ -165,3 +165,12 @@ I may extend this protocol later as the project develops. If I make a change tha
 I have recorded a separate EWMA signal-processing plan and a partial-October status note. This addendum records a decision made now; it does not revise the original August-cutoff v0.1 forecast specification. The new plan is in [signal_processing_plan.md](signal_processing_plan.md), including candidate parameters, chronological validation, initialization, future-data checks and freeze requirements. The existing forecast files remain the baseline record.
 
 As of the 6 October close, four of the five October target returns are available. A method created now for the October 1–7 window is a partially observed-window experiment, not a fully prospective five-return forecast. An earlier input cutoff does not change its actual creation date. I preserve the original October forecast and evaluate it only after the final return becomes available. Future signal-based forecasts receive their own version, cutoff, publication record and evaluation windows.
+
+
+## EWMA execution record — 8 October 2026
+
+I have now executed the separately documented EWMA protocol using a new complete Yahoo adjusted-close snapshot. The August-cutoff file is a reconstruction because it does not match the original input hash. The October-cutoff file ends exactly on 7 October. No raw Close values or six-price Stock Analysis patch were substituted into the new return history.
+
+The [EWMA release report](ewma_freeze_2026-10-08.md) links both numerical freezes, matched historical scores, figures and reproducible commands. Standalone decay 0.80 and Ridge-feature decay 0.90 were selected using only the predeclared 2021–2022 target endpoints; both cutoffs use identical selection scores. Later historical assessment is development-aware. September/October reconstructed comparisons are retrospective. The November and December freezes were published before their anchoring closes, with the GitHub commit recorded as external evidence.
+
+I preserve the original v0.1 archive unchanged and score each new freeze without changing its predictions after observing outcomes. Current adjusted-price history has data-vintage limitations; different cutoffs do not isolate a model effect. Exact equations, initialization, eligibility and complexity are in [the implementation protocol](ewma_experiment.md).

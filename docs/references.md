@@ -42,3 +42,10 @@ These source links support the archived price snapshot, not future performance c
 ## Method review recorded 8 October 2026
 
 The [signal-method review](signal_processing_methods_review.md#references-and-status) lists primary NIST, pandas, SciPy, PyWavelets, statsmodels and arch documentation alongside the formulations and requirements. Reviewed methods are distinguished from implemented experiments.
+
+
+## EWMA snapshot and session calendar — 8 October 2026
+
+- Yahoo Finance chart responses: `https://query1.finance.yahoo.com/v8/finance/chart/{ticker}`. I used `indicators.adjclose[0].adjclose`, daily interval, 2015-01-01 inclusive to 2026-10-08 exclusive. Exact responses and provenance are in [the saved snapshot](../data/raw/yahoo_2026-10-08/README.md); this endpoint is a provider data response, not a guaranteed stable API contract.
+- [exchange_calendars](https://github.com/gerrymanoim/exchange_calendars), version 4.13.2, XNYS calendar. This is a community-maintained calendar package, not the exchange itself.
+- [NYSE hours and calendars](https://www.nyse.com/trade/hours-calendars): official 2026 holidays checked against the saved schedule.

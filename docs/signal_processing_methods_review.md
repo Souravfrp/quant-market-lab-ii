@@ -6,8 +6,10 @@ Recorded on 8 October 2026. This is a method review and selection rationale, not
 
 I already have daily adjusted prices for eight ETFs and 2,931 historical daily returns through August 31, a rolling-20 RMS baseline, Ridge features and chronological evaluation machinery. For adjusted close $A_t$,
 
-$$r_t=\log(A_t/A_{t-1}),\quad q_t=r_t^2,\quad
-Y_t=\sqrt{\frac15\sum_{h=1}^{5}r_{t+h}^2}.$$
+$$
+r_t=\log(A_t/A_{t-1}),\quad q_t=r_t^2,\quad
+Y_t=\sqrt{\frac15\sum_{h=1}^{5}r_{t+h}^2}.
+$$
 
 My question is whether a signal constructed from past observations improves the forecast of this five-return SPY RMS. A filter estimates a current signal; a transform represents observations; a forecasting model predicts future quantities. Each needs an explicit connection to this target.
 
@@ -17,7 +19,9 @@ Existing historical data allow all the methods below to be attempted without col
 
 ### Weighted moving averages
 
-$$v_t=\sum_{j=0}^{m-1}w_jq_{t-j},\quad w_j\ge0,\quad\sum_jw_j=1,\quad s_t=\sqrt{v_t}.$$
+$$
+v_t=\sum_{j=0}^{m-1}w_jq_{t-j},\quad w_j\ge0,\quad\sum_jw_j=1,\quad s_t=\sqrt{v_t}.
+$$
 
 **What it estimates:** weighted recent return magnitude. Equal weights with $m=20$ reproduce my rolling-RMS baseline. Using $s_t$ as a future forecast is a persistence rule, not guaranteed accuracy.
 
@@ -25,9 +29,13 @@ $$v_t=\sum_{j=0}^{m-1}w_jq_{t-j},\quad w_j\ge0,\quad\sum_jw_j=1,\quad s_t=\sqrt{
 
 ### EWMA
 
-$$v_t=\lambda v_{t-1}+(1-\lambda)q_t,\quad0<\lambda<1,\quad s_t=\sqrt{v_t}.$$
+$$
+v_t=\lambda v_{t-1}+(1-\lambda)q_t,\quad0<\lambda<1,\quad s_t=\sqrt{v_t}.
+$$
 
-$$v_t=\lambda^mv_{t-m}+(1-\lambda)\sum_{j=0}^{m-1}\lambda^jq_{t-j}.$$
+$$
+v_t=\lambda^mv_{t-m}+(1-\lambda)\sum_{j=0}^{m-1}\lambda^jq_{t-j}.
+$$
 
 **What it estimates:** a smoothed second moment with gradually declining weights. It does not predict direction. My standalone forecast rule would be $\widehat Y_t=s_t$.
 
@@ -37,9 +45,13 @@ $$v_t=\lambda^mv_{t-m}+(1-\lambda)\sum_{j=0}^{m-1}\lambda^jq_{t-j}.$$
 
 For a chosen observed series $x_t$,
 
-$$\ell_t=\alpha x_t+(1-\alpha)(\ell_{t-1}+b_{t-1}),$$
-$$b_t=\beta(\ell_t-\ell_{t-1})+(1-\beta)b_{t-1},\quad
-\widehat x_{t+h}=\ell_t+hb_t.$$
+$$
+\ell_t=\alpha x_t+(1-\alpha)(\ell_{t-1}+b_{t-1}),
+$$
+$$
+b_t=\beta(\ell_t-\ell_{t-1})+(1-\beta)b_{t-1},\quad
+\widehat x_{t+h}=\ell_t+hb_t.
+$$
 
 **What it estimates:** level and trend, with trend extrapolation. This does not establish a persistent trend in financial risk.
 
@@ -49,11 +61,15 @@ $$b_t=\beta(\ell_t-\ell_{t-1})+(1-\beta)b_{t-1},\quad
 
 FIR:
 
-$$s_t=\sum_{j=0}^{m}b_jx_{t-j}.$$
+$$
+s_t=\sum_{j=0}^{m}b_jx_{t-j}.
+$$
 
 IIR, with leading denominator coefficient normalized to one:
 
-$$s_t=\sum_{j=0}^{m}b_jx_{t-j}-\sum_{k=1}^{p}a_ks_{t-k}.$$
+$$
+s_t=\sum_{j=0}^{m}b_jx_{t-j}-\sum_{k=1}^{p}a_ks_{t-k}.
+$$
 
 **What they estimate:** components retained by a filter design. Low-pass filtering suppresses fast variation; it does not prove that suppressed variation is irrelevant noise. Moving averages are FIR examples; EWMA is a first-order IIR example.
 
@@ -63,8 +79,10 @@ $$s_t=\sum_{j=0}^{m}b_jx_{t-j}-\sum_{k=1}^{p}a_ks_{t-k}.$$
 
 For a trailing window of $N$ values,
 
-$$X_k=\sum_{n=0}^{N-1}x_ne^{-2\pi i kn/N},\quad
-E_{\mathcal B}=\sum_{k\in\mathcal B}|X_k|^2.$$
+$$
+X_k=\sum_{n=0}^{N-1}x_ne^{-2\pi i kn/N},\quad
+E_{\mathcal B}=\sum_{k\in\mathcal B}|X_k|^2.
+$$
 
 **What it describes:** frequency components and energy in selected bands. A peak does not establish a stable market cycle or produce a forecast by itself.
 
@@ -74,8 +92,10 @@ E_{\mathcal B}=\sum_{k\in\mathcal B}|X_k|^2.$$
 
 A discrete-observation approximation is
 
-$$W(a,b)=\frac1{\sqrt a}\sum_nx_n
-\overline{\psi\left(\frac{n-b}{a}\right)},\quad a>0.$$
+$$
+W(a,b)=\frac1{\sqrt a}\sum_nx_n
+\overline{\psi\left(\frac{n-b}{a}\right)},\quad a>0.
+$$
 
 The wavelet $\psi$ examines scale $a$ around location $b$.
 
@@ -87,16 +107,22 @@ The wavelet $\psi$ examines scale $a$ around location $b$.
 
 AR:
 
-$$x_t=c+\sum_{j=1}^{p}\phi_jx_{t-j}+\varepsilon_t.$$
+$$
+x_t=c+\sum_{j=1}^{p}\phi_jx_{t-j}+\varepsilon_t.
+$$
 
 ARMA:
 
-$$x_t=c+\sum_{j=1}^{p}\phi_jx_{t-j}+
-\varepsilon_t+\sum_{k=1}^{q}\theta_k\varepsilon_{t-k}.$$
+$$
+x_t=c+\sum_{j=1}^{p}\phi_jx_{t-j}+
+\varepsilon_t+\sum_{k=1}^{q}\theta_k\varepsilon_{t-k}.
+$$
 
 ARIMA:
 
-$$\phi(B)(1-B)^dx_t=c+\theta(B)\varepsilon_t,\quad Bx_t=x_{t-1}.$$
+$$
+\phi(B)(1-B)^dx_t=c+\theta(B)\varepsilon_t,\quad Bx_t=x_{t-1}.
+$$
 
 **What they model:** dependence on past observations and innovations; ARIMA also differences the series. The ARMA moving-average term means past innovations, not my rolling squared-return average.
 
@@ -108,12 +134,16 @@ My separate autocorrelation draft is not verified implementation evidence in thi
 
 An illustrative local-level specification is
 
-$$z_t=z_{t-1}+\eta_t,\qquad x_t=z_t+\epsilon_t.$$
+$$
+z_t=z_{t-1}+\eta_t,\qquad x_t=z_t+\epsilon_t.
+$$
 
 A linear Gaussian filtering update is
 
-$$\widehat z_{t|t}=\widehat z_{t|t-1}
-+K_t(x_t-\widehat z_{t|t-1}).$$
+$$
+\widehat z_{t|t}=\widehat z_{t|t-1}
++K_t(x_t-\widehat z_{t|t-1}).
+$$
 
 **What it estimates:** a hidden state under specified dynamics/noise assumptions. Kalman filtering is an estimation procedure, not one unique market model.
 
@@ -123,8 +153,12 @@ $$\widehat z_{t|t}=\widehat z_{t|t-1}
 
 GARCH(1,1):
 
-$$r_t=\mu_t+\varepsilon_t,\quad \varepsilon_t=\sigma_tz_t,$$
-$$\sigma_t^2=\omega+\alpha\varepsilon_{t-1}^2+\beta\sigma_{t-1}^2.$$
+$$
+r_t=\mu_t+\varepsilon_t,\quad \varepsilon_t=\sigma_tz_t,
+$$
+$$
+\sigma_t^2=\omega+\alpha\varepsilon_{t-1}^2+\beta\sigma_{t-1}^2.
+$$
 
 Typical constraints are $\omega>0$, $\alpha,\beta\ge0$; under the standard standardized-innovation specification, $\alpha+\beta<1$ supports finite unconditional variance. GJR-GARCH and EGARCH extend how shocks affect variance.
 
@@ -134,9 +168,11 @@ Typical constraints are $\omega>0$, $\alpha,\beta\ge0$; under the standard stand
 
 The target connection is
 
-$$\mathbb E[r_{t+h}^2\mid\mathcal F_t]
-=\operatorname{Var}(r_{t+h}\mid\mathcal F_t)
-+\mathbb E[r_{t+h}\mid\mathcal F_t]^2.$$
+$$
+\mathbb E[r_{t+h}^2\mid\mathcal F_t]
+=\mathrm{Var}(r_{t+h}\mid\mathcal F_t)
++\mathbb E[r_{t+h}\mid\mathcal F_t]^2.
+$$
 
 A plug-in forecast $\sqrt{\frac15\sum_h\mathbb E[r_{t+h}^2\mid\mathcal F_t]}$ generally differs from $\mathbb E[Y_t\mid\mathcal F_t]$ because square root is nonlinear. I must say which quantity is scored.
 

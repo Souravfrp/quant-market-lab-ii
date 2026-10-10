@@ -7,7 +7,34 @@ I am building Quant Market Lab II as a focused continuation of my earlier **Quan
 
 The purpose is not to claim that markets are reliably predictable. The purpose is to design an auditable forecasting experiment in which the cutoff date, target, features, model-selection rules, forecasts, and later evaluation are kept separate enough to expose look-ahead bias and overfitting.
 
-## Status on 8 October 2026
+## Update on 10 October 2026: why I check autocorrelation now
+
+After preserving my RMS and EWMA forecasts, I want to understand whether my existing daily data show persistence in return direction or in move size. I use autocorrelation as a diagnostic of the existing experiment, without adding a forecasting model or changing the frozen predictions.
+
+I have reproduced the August ACF from the preserved original prices. Lag-1 correlation is **-0.116 for signed returns**, **0.420 for squared returns**, and **0.352 for absolute returns**. Move-size dependence is more persistent in this sample. That helps explain why I examine risk signals; it does not establish that EWMA will outperform the baselines.
+
+![Historical return and move-size autocorrelation](results/autocorrelation_2026-10-10/figures/acf.svg)
+
+The shading is a rough white-noise reference, not a robust significance claim. I keep the August history, September observations, October 7 extension, and October 8 publication date separate. November and December remain future target windows, not measured results.
+
+| What I want to answer | What I have done | What remains unestablished |
+|---|---|---|
+| Does historical move size persist? | Reproduced signed, squared and absolute-return ACF. | Stability across every regime or asset. |
+| Does sharing target returns matter? | Compared mean-square and RMS labels with and without overlap. | Independence from non-overlap alone. |
+| How did existing methods perform? | Reused dated, matched historical and known-outcome comparisons. | Significant or universal improvement. |
+| What can I say about November and December? | Preserved the existing risk predictions. | Their actual accuracy, return direction or ETF ranking. |
+
+My [autocorrelation study](docs/autocorrelation_analysis.md) gives the motive, mathematics, algorithm, complexity, timeline, six figures, exact outputs, reproducibility checks, references and limitations. The [code](src/autocorrelation_analysis.py) fits no new forecasting model. PACF, Ljung-Box, AR and forecast-error serial-dependence studies are not part of this implementation.
+
+```bash
+python -m pip install -r requirements-figures.txt
+python -m unittest discover -s tests -p 'test_autocorrelation_analysis.py' -v
+python -m src.autocorrelation_analysis
+```
+
+Reconstruction writes into a new `rebuilt/` directory; the original forecast archives remain unchanged.
+
+## Forecast status recorded on 8 October 2026
 
 I have now calculated and published separate EWMA freezes using Yahoo adjusted-close history through **August 31** and **October 7**. The first new August dataset was explicitly a reconstruction. I have since verified and separately rerun the preserved original input, as documented above. The original v0.1 forecasts remain unchanged. My [EWMA freeze report](docs/ewma_freeze_2026-10-08.md) contains the exact target dates, forecasts, historical scores, graphs, source provenance and reproduction commands.
 
@@ -171,3 +198,4 @@ I use these models to forecast SPY return magnitude over specified five-session 
 | Does this imply whole-month risk or a profitable strategy? | Neither follows from the current five-session RMS forecasts. | A monthly target or a separate trading study with costs and execution. |
 
 My [detailed scope and limitations](docs/model_scope_and_limitations.md) distinguishes historical comparisons, retrospective calculations and prospective freezes. It explains the mathematics, EWMA persistence assumption, data-vintage qualification and what I would need before making stronger claims.
+

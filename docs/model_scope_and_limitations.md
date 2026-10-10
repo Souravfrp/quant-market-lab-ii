@@ -70,3 +70,18 @@ My conclusion is deliberately limited: I can report the predictions, the observa
 - [EWMA freezes and historical comparisons](ewma_freeze_2026-10-08.md).
 - [Original input verification and data-vintage comparison](original_august_verification.md).
 - [Alternative methods and their execution requirements](signal_processing_methods_review.md).
+
+
+
+## My autocorrelation diagnostic: 10 October 2026
+
+I now use [autocorrelation](autocorrelation_analysis.md) to examine persistence in signed returns and move sizes in the preserved August data. This helps me interpret the existing rolling RMS and EWMA experiment. I also check how shared returns affect target dependence. I do not change any frozen forecast or select a new model from this diagnostic.
+
+| What I can report | What I cannot conclude |
+|---|---|
+| Historical sample ACF and separate signed/size patterns. | Stationarity across all regimes, causation or profitable direction forecasting. |
+| Overlap and non-overlap target ACF. | Independence from non-overlap or zero correlation alone. |
+| Already saved matched model errors. | Statistical significance or general superiority from ACF. |
+| Preserved future five-return RMS predictions. | Actual November/December performance before target completion. |
+
+The rough white-noise ACF band is not robust inference for heavy-tailed clustered volatility. The overlap-only formula applies to averages of independent squared returns with finite variance of those squares; it is not an exact RMS formula. I have not reproduced the earlier draft's PACF, Ljung-Box or AR results here. Residual serial-dependence diagnostics remain planned and must respect target spacing.

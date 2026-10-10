@@ -18,7 +18,7 @@ I choose a one-sided exponentially weighted moving average (EWMA) of squared ret
 
 The rolling baseline assigns equal weight to the last 20 observations and then drops an observation abruptly. EWMA reduces the weight gradually. This is the particular difference I want to test. I do not assume gradual weighting is better.
 
-My separate autocorrelation draft motivated a closer look at move-size persistence. Its implementation and reported scores are not yet in this repository. I do not use those unverified scores as evidence that EWMA works. Its next-day absolute-return target also differs from this experiment's five-day RMS target.
+My separate autocorrelation draft motivated a closer look at move-size persistence. On October 10 I implemented [historical ACF and target-overlap diagnostics](autocorrelation_analysis.md) using the preserved August input. I use them to interpret the existing risk experiment, not to retroactively select EWMA or claim it works. The draft's AR, PACF, Ljung-Box and associated scores remain outside this implementation. Its next-day absolute-return target also differs from this experiment's five-day RMS target.
 
 | Alternative | Why I am not starting there | What would justify testing it later |
 |---|---|---|
@@ -111,4 +111,5 @@ I have recorded the plan, clarified the timing, preserved a five-price partial-O
 
 ## Method review added 8 October 2026
 
-My [method review](signal_processing_methods_review.md) describes alternative formulations, what each estimates and execution requirements before explaining why I selected EWMA first. Several alternatives can also use my existing observations without extra samples. This is a choice based on alignment with rolling RMS and fewer modelling decisions, not measured superiority. Implementation remains pending.
+My [method review](signal_processing_methods_review.md) describes alternative formulations, what each estimates and execution requirements before explaining why I selected EWMA first. Several alternatives can also use my existing observations without extra samples. This is a choice based on alignment with rolling RMS and fewer modelling decisions, not measured superiority. The EWMA implementation and numerical freezes were published on October 8; the alternatives remain reviewed rather than implemented. The October 10 ACF diagnostic adds no new forecasting model.
+

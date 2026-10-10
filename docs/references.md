@@ -49,3 +49,13 @@ The [signal-method review](signal_processing_methods_review.md#references-and-st
 - Yahoo Finance chart responses: `https://query1.finance.yahoo.com/v8/finance/chart/{ticker}`. I used `indicators.adjclose[0].adjclose`, daily interval, 2015-01-01 inclusive to 2026-10-08 exclusive. Exact responses and provenance are in [the saved snapshot](../data/raw/yahoo_2026-10-08/README.md); this endpoint is a provider data response, not a guaranteed stable API contract.
 - [exchange_calendars](https://github.com/gerrymanoim/exchange_calendars), version 4.13.2, XNYS calendar. This is a community-maintained calendar package, not the exchange itself.
 - [NYSE hours and calendars](https://www.nyse.com/trade/hours-calendars): official 2026 holidays checked against the saved schedule.
+
+
+
+## Autocorrelation diagnostic published on 10 October 2026
+
+- [NIST/SEMATECH: Autocorrelation Plot](https://www.itl.nist.gov/div898/handbook/eda/section3/eda331.htm). Source for the common-N autocovariance and sample ACF, and for the caution that uncorrelated does not imply random. Consulted October 10, 2026.
+- [statsmodels 0.14.4: ACF](https://www.statsmodels.org/v0.14.4/generated/statsmodels.tsa.stattools.acf.html). Source for unadjusted denominator conventions and context-dependent uncertainty bands. Consulted October 10, 2026. My implementation uses NumPy directly; this is a reference rather than a runtime dependency.
+- [My diagnostic and mathematical notes](autocorrelation_analysis.md), [code](../src/autocorrelation_analysis.py), [ACF table](../results/autocorrelation_2026-10-10/august_acf.csv), [target-overlap table](../results/autocorrelation_2026-10-10/target_overlap_acf.csv), and [input/output manifest](../results/autocorrelation_2026-10-10/manifest.json). The supplied earlier draft motivated this work; its additional AR, PACF, Ljung-Box and claimed test results are not imported as verified findings.
+
+These diagnostics interpret the existing risk experiment. They do not introduce a new forecasting model, demonstrate causation, or establish future accuracy.

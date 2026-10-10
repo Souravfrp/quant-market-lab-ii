@@ -1,6 +1,6 @@
 # Signal-processing methods I reviewed and why I chose EWMA first
 
-Recorded on 8 October 2026. This is a method review and selection rationale, not evidence that I implemented or tested all these methods. EWMA is selected for implementation; its performance and forecasts remain pending.
+Recorded on 8 October 2026. This is a method review and selection rationale, not evidence that I implemented or tested all these methods. Update on 10 October: EWMA was implemented, tested and published on October 8; its future outcomes remain pending. The other methods below remain a review, not claimed implementations.
 
 ## Existing data and research question
 
@@ -128,7 +128,7 @@ $$
 
 **Requirements:** input series, lag orders, differencing where justified, fitting and residual/stability diagnostics. Existing data permit experiments on returns, absolute returns or squared returns. These targets differ; a next-day absolute-return forecast is not a five-day RMS forecast. Positivity and horizon mapping need specification.
 
-My separate autocorrelation draft is not verified implementation evidence in this repository, and I do not use its reported scores to claim success here.
+I have now reproduced the historical ACF and target-overlap diagnostics in [my autocorrelation study](autocorrelation_analysis.md). The earlier draft's AR, PACF and Ljung-Box scores remain unverified here; I do not use them to claim success. No new forecasting model is added by the ACF diagnostic.
 
 ### State-space models and Kalman filtering
 
@@ -198,7 +198,7 @@ EWMA is the closest controlled extension of my existing rolling-RMS baseline: bo
 
 EWMA is not uniquely possible with my data. AR and GARCH also use existing returns. I choose it for alignment, interpretability and fewer simultaneous changes, not because the alternatives are inferior or EWMA has demonstrated better accuracy.
 
-I will compare standalone EWMA with rolling RMS and constant baselines, then test EWMA as an added Ridge feature on matched historical windows. I still need implementation, parameter validation and tests. The [detailed plan](signal_processing_plan.md) supplies these rules. October's known outcome is not a basis for tuning an apparently prospective October forecast. Later forecasts need separate, timely publication.
+I have compared standalone EWMA with rolling RMS and constant baselines, and tested EWMA as an added Ridge feature on matched historical windows. The [October 8 freeze report](ewma_freeze_2026-10-08.md) records implementation, selected parameters, tests and predictions; future outcome evaluation remains pending. The [detailed plan](signal_processing_plan.md) supplies these rules. October's known outcome is not a basis for tuning an apparently prospective October forecast. Later forecasts need separate, timely publication.
 
 ## References and status
 
@@ -210,4 +210,5 @@ These sources inform the formulations; citations do not imply implementation or 
 - [statsmodels time series](https://www.statsmodels.org/stable/tsa.html), [state space](https://www.statsmodels.org/stable/statespace.html).
 - [arch GARCH](https://arch.readthedocs.io/en/stable/univariate/generated/arch.univariate.GARCH.html).
 
-Completed: review, formulations, execution requirements and selection rationale. Pending: new method implementations, parameter selection, measured improvements and new prospective forecasts.
+Completed: method review, formulations, selection rationale, EWMA implementation and its historical assessment and prospective freezes, plus the October 10 ACF diagnostic. Pending: future outcome evaluation and any separately specified alternative-model experiments. Historical error differences do not establish significant or universal improvement.
+

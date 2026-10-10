@@ -1,0 +1,45 @@
+series,lag_in_labels,acf,n_labels
+Mean square overlapping,0,1,2927
+Mean square overlapping,1,0.94539225879,2927
+Mean square overlapping,2,0.875642018014,2927
+Mean square overlapping,3,0.781885128465,2927
+Mean square overlapping,4,0.691186561183,2927
+Mean square overlapping,5,0.598512535477,2927
+Mean square overlapping,6,0.555200204285,2927
+Mean square overlapping,7,0.51055207229,2927
+Mean square overlapping,8,0.475164492601,2927
+Mean square overlapping,9,0.433361238837,2927
+Mean square overlapping,10,0.394272034543,2927
+RMS overlapping,0,1,2927
+RMS overlapping,1,0.943023475275,2927
+RMS overlapping,2,0.883606487339,2927
+RMS overlapping,3,0.815775534821,2927
+RMS overlapping,4,0.74444472931,2927
+RMS overlapping,5,0.666497149068,2927
+RMS overlapping,6,0.638320310083,2927
+RMS overlapping,7,0.606201452916,2927
+RMS overlapping,8,0.577485627308,2927
+RMS overlapping,9,0.548307582873,2927
+RMS overlapping,10,0.52259626031,2927
+Mean square non-overlapping,0,1,586
+Mean square non-overlapping,1,0.585542474538,586
+Mean square non-overlapping,2,0.374033698793,586
+Mean square non-overlapping,3,0.243608142931,586
+Mean square non-overlapping,4,0.11585688961,586
+Mean square non-overlapping,5,0.0930116904749,586
+Mean square non-overlapping,6,0.0573365844962,586
+Mean square non-overlapping,7,0.0345076497372,586
+Mean square non-overlapping,8,0.0239487389133,586
+Mean square non-overlapping,9,0.0225037605157,586
+Mean square non-overlapping,10,0.0135892958732,586
+RMS non-overlapping,0,1,586
+RMS non-overlapping,1,0.683454321679,586
+RMS non-overlapping,2,0.515976476426,586
+RMS non-overlapping,3,0.416611023721,586
+RMS non-overlapping,4,0.311930249089,586
+RMS non-overlapping,5,0.277360419059,586
+RMS non-overlapping,6,0.228721430542,586
+RMS non-overlapping,7,0.183852259631,586
+RMS non-overlapping,8,0.163510908837,586
+RMS non-overlapping,9,0.132469374654,586
+RMS non-overlapping,10,0.124210215563,586

@@ -1,5 +1,76 @@
 # My November 2026 SPY evaluation — provisional
 
+## At a glance: what did I find?
+
+| Measure | October | November |
+|---|---:|---:|
+| Observed five-session daily RMS | **0.5263%** | **2.1650%** |
+| Closest original model | Rolling-20 | Constant |
+| Smallest absolute forecast error | **0.0517 pp** | **1.2853 pp** |
+| Data verification | Archived full-precision Yahoo reconciliation | Yahoo-displayed prices rounded to cents |
+
+I found that **October was more accurate for all three original models**. November's observed RMS was about **4.11 times** October's. A higher RMS means larger daily movements; it does not tell me whether an investment was profitable.
+
+### Chart 1 — Observed RMS (%)
+
+```mermaid
+xychart-beta
+    title "SPY observed daily RMS: first five sessions"
+    x-axis ["October", "November"]
+    y-axis "RMS (%)" 0 --> 2.5
+    bar [0.5263, 2.1650]
+```
+
+### Chart 2 — November's five daily log returns (%)
+
+```mermaid
+xychart-beta
+    title "SPY daily log returns, November 2–6"
+    x-axis ["Nov 2", "Nov 3", "Nov 4", "Nov 5", "Nov 6"]
+    y-axis "Daily return (%)" -5 --> 2
+    bar [-0.4802, 0.2987, 1.6383, -4.5093, 0.3119]
+```
+
+November 5 accounted for about **86.8% of the sum of squared returns** in this five-day window. That explains the high RMS; it does not mean I could have predicted the move.
+
+### Chart 3 — How much did the original models miss by?
+
+The bars below show **absolute forecast error in percentage points**. Lower is better. All three models use the same August 31 information cutoff.
+
+```mermaid
+xychart-beta
+    title "October: absolute forecast error (pp)"
+    x-axis ["Ridge", "Constant", "Rolling-20"]
+    y-axis "Absolute error (pp)" 0 --> 1.7
+    bar [0.2855, 0.3529, 0.0517]
+```
+
+```mermaid
+xychart-beta
+    title "November: absolute forecast error (pp)"
+    x-axis ["Ridge", "Constant", "Rolling-20"]
+    y-axis "Absolute error (pp)" 0 --> 1.7
+    bar [1.3232, 1.2853, 1.5870]
+```
+
+I use the **same vertical scale** for these two charts so the difference is easier to see.
+
+### Chart 4 — Did using the later information cutoff help in November?
+
+These are **separate forecast experiments**, not replacements for my original August-cutoff forecasts.
+
+| Model | Aug 31 cutoff absolute error | Oct 7 cutoff absolute error |
+|---|---:|---:|
+| Ridge | 1.3232 pp | 1.3770 pp |
+| Constant | **1.2853 pp** | **1.2884 pp** |
+| Rolling-20 | 1.5870 pp | 1.5252 pp |
+| EWMA | 1.7331 pp | 1.6362 pp |
+| Ridge + EWMA | 1.3260 pp | 1.4219 pp |
+
+The later cutoff improved Rolling-20 and EWMA, but it did not improve every method. Constant remained closest in both sets.
+
+---
+
 ## What did I test?
 I checked how well my previously frozen models predicted the daily log-return RMS of SPY during the first five trading sessions of November 2026: November 2, 3, 4, 5 and 6. I used October 30 as the price anchor. My target is **one RMS value from five daily returns**, not five independent forecasts, a monthly return, or annualized volatility.
 
@@ -38,7 +109,7 @@ The additional August-cutoff EWMA and Ridge + EWMA November forecasts were **0.4
 ## What are my limitations?
 **This is a provisional, rounded-price evaluation.** My November prices were taken from a previously prepared snapshot of the **Yahoo Finance historical webpage's displayed adjusted closes**, which show cents. I could not obtain and archive Yahoo's **full-precision November chart-API adjusted closes** in this run. Therefore, I cannot call this a full-precision Yahoo reconciliation or claim that I independently verified a raw provider response.
 
-My October repository includes additional work that I have **not yet repeated for November**: a complete eight-ETF observed profile, original-style figures, input/provenance SHA-256 verification, and dedicated tests. I have not represented those checks as completed.
+My October repository includes additional work that I have **not yet repeated for November**: a complete eight-ETF observed profile, the original multi-panel image figures, input/provenance SHA-256 verification, and dedicated repository tests. I have not represented those checks as completed.
 
 Two five-session windows cannot establish which model is best over time. The large November error does not prove that the movement was predictable from the earlier information cutoffs.
 

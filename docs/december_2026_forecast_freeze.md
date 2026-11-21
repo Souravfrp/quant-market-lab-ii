@@ -1,4 +1,72 @@
-# My December 2026 SPY forecasts — preserved before the target window
+# December 2026 — SPY risk forecast | At a glance
+
+> **Research outcome:** I published December forecasts **before the target period**. The forecasts are **frozen**, not yet scored. In the two earlier evaluation windows, October was more accurate than November; November's source reconciliation is still provisional.
+
+| What a reader should know | Result |
+|---|---|
+| **What I predict** | How large SPY's daily movements may be across five trading sessions |
+| **Forecast window** | December 1–7, 2026 (five sessions) |
+| **Forecast status** | **Already published and preserved — no retraining** |
+| **Accuracy status** | **Pending** until December 7 market close and source verification |
+| **What worked previously?** | October: Rolling-20 closest; November: Constant closest (provisional) |
+| **Biggest limitation** | November Yahoo full-precision reconciliation and USO data remain incomplete |
+
+## Visual 1 — December forecasts already on record
+
+The bars show predicted **daily RMS (%)**, not predicted returns or investment gains. The two sets use **different historical information cutoffs**, so I keep them separate.
+
+### Original baseline · August 31 information cutoff
+
+```mermaid
+xychart-beta
+    title "December SPY daily RMS forecast (%) — original frozen baseline"
+    x-axis ["Ridge", "Constant", "Rolling-20"]
+    y-axis "Forecast RMS (%)" 0 --> 1
+    bar [0.8701, 0.8817, 0.5780]
+```
+
+### Separate EWMA experiment · October 7 information cutoff
+
+```mermaid
+xychart-beta
+    title "December SPY daily RMS forecast (%) — later cutoff experiment"
+    x-axis ["Ridge", "Constant", "Rolling-20", "EWMA", "Ridge+EWMA"]
+    y-axis "Forecast RMS (%)" 0 --> 1
+    bar [0.8325, 0.8767, 0.6398, 0.5287, 0.8169]
+```
+
+**How to read these:** The forecast values are estimates of typical *daily move magnitude* over the five-session window. A lower bar is **not automatically a better model**. We cannot determine which forecast is most accurate until the December outcome is measured.
+
+## Visual 2 — Why I am cautious about the results
+
+```mermaid
+xychart-beta
+    title "Observed SPY daily RMS (%) — earlier five-session windows"
+    x-axis ["October verified", "November provisional"]
+    y-axis "Observed RMS (%)" 0 --> 2.5
+    bar [0.5263, 2.1650]
+```
+
+**What happened?** November's observed daily movements were about **4.11 times** October's. All three original models were closer in October than in November. The November figure is computed from Yahoo-displayed adjusted closes rounded to cents, **not** a completed full-precision Yahoo reconciliation.
+
+## Research status in one glance
+
+| Stage | Status | What it means |
+|---|---|---|
+| October evaluation | **Completed** | Full-precision Yahoo SPY reconciliation archived |
+| November SPY evaluation | **Provisional** | Rounded adjusted closes; full-precision source still missing |
+| November eight-ETF evaluation | **Incomplete** | USO's six-price series not verified |
+| December predictions | **Frozen** | Original archive values preserved; no changes to models |
+| December evaluation | **Not started** | December 1–7 outcomes are in the future |
+
+**Why November remains provisional as of November 21, 2026:** Yahoo Finance source retrieval did not provide the full-precision November adjusted-close snapshot needed to match October's verification standard, and the complete USO series was not verified. This is a **data-access and provenance gap**, not evidence that November prices have not been published. I have not substituted estimated data or revised any forecast to improve its score.
+
+**Explore the evidence:** [Original frozen forecast CSV](../forecasts/2026-09-30-v0.1/forecasts.csv) · [October-cutoff forecast CSV](../forecasts/2026-10-08-ewma-october/forecasts.csv) · [October evaluation](october_2026_baseline_evaluation.md) · [November provisional evaluation](november_2026_evaluation.md)
+
+---
+
+# Methods, limitations and full documentation
+
 
 ## What am I predicting?
 I forecast the root-mean-square (RMS) of five daily SPY log returns for **December 1–7, 2026** (trading sessions December 1, 2, 3, 4 and 7). The return anchor is November 30. This measures daily movement size, not return direction, profitability, or the entire month's volatility.

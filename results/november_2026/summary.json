@@ -1,0 +1,24 @@
+{
+  "status": "provisional_rounded_yahoo_display",
+  "source": "https://finance.yahoo.com/quote/SPY/history/",
+  "precision": "displayed adjusted closes to cents, not full precision Yahoo API",
+  "anchor_date": "2026-10-30",
+  "return_dates": [
+    "2026-11-02",
+    "2026-11-03",
+    "2026-11-04",
+    "2026-11-05",
+    "2026-11-06"
+  ],
+  "observed_rms_decimal": 0.021649520303596678,
+  "october_full_precision_rms_decimal": 0.005262540681194064,
+  "original_august_cutoff_closest": "constant",
+  "october_closest": "rolling_20d_rms",
+  "limitations": [
+    "raw full-precision Yahoo API snapshot not obtained",
+    "source-vintage hash unavailable",
+    "eight-ETF profile not reproduced",
+    "November-specific unit tests and figures not completed"
+  ],
+  "preservation": "Original forecasts and October results unchanged"
+}

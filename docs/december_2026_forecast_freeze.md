@@ -9,7 +9,7 @@
 | **Forecast status** | **Already published and preserved — no retraining** |
 | **Accuracy status** | **Pending** until December 7 market close and source verification |
 | **What worked previously?** | October: Rolling-20 closest; November: Constant closest (provisional) |
-| **Biggest limitation** | November Yahoo full-precision reconciliation and USO data remain incomplete |
+| **Biggest limitation** | November Yahoo full-precision and full eight-ETF reconciliation remain incomplete; USO's six rounded prices are now available |
 
 ## Visual 1 — December forecasts already on record
 
@@ -49,13 +49,15 @@ xychart-beta
 
 **What happened?** November's observed daily movements were about **4.11 times** October's. All three original models were closer in October than in November. The November figure is computed from Yahoo-displayed adjusted closes rounded to cents, **not** a completed full-precision Yahoo reconciliation.
 
+> **Data-access update (23 November 2026):** I recovered USO's six **cent-rounded adjusted closing prices** from [Stock Analysis](https://stockanalysis.com/etf/uso/history/); my [November report](november_2026_evaluation.md#data-access-update--23-november-2026) records the values and a five-return RMS calculation. This closes the missing-date gap for USO, **not** the full-precision Yahoo API or eight-ETF verification gap. The original December forecasts remain frozen.
+
 ## Research status in one glance
 
 | Stage | Status | What it means |
 |---|---|---|
 | October evaluation | **Completed** | Full-precision Yahoo SPY reconciliation archived |
 | November SPY evaluation | **Provisional** | Rounded adjusted closes; full-precision source still missing |
-| November eight-ETF evaluation | **Incomplete** | USO's six-price series not verified |
+| November eight-ETF evaluation | **Incomplete** | USO's six rounded adjusted prices recovered on November 23; full-precision source reconciliation pending |
 | December predictions | **Frozen** | Original archive values preserved; no changes to models |
 | December evaluation | **Not started** | December 1–7 outcomes are in the future |
 
@@ -104,6 +106,9 @@ In October, the observed SPY daily RMS was about **0.5263%**, and the original R
 The November trading window has **already finished**. The outstanding issue is **data access and reproducibility, not waiting for November prices to be published**. During the November evaluation, I could check Yahoo Finance historical adjusted-close values **rounded to cents** for SPY and six other ETFs. I could not archive a full-precision Yahoo Finance chart-API response for November, and I could not retrieve a complete six-date adjusted-close series for **USO**, the eighth ETF. I therefore cannot claim a full-precision, eight-ETF November reconciliation. I have not filled the missing data with guesses. Local numerical checks do not substitute for original provider-data verification.
 
 This limitation does **not** invalidate the pre-existing December forecasts: they were recorded before December's target window and can be evaluated later independently of November's unfinished source reconciliation. It does mean that the November evaluation should continue to be labeled provisional.
+
+
+**Later status (23 November 2026):** The previously missing six-date USO rounded series has now been transcribed and independently checked against a second public historical-price listing. Full-precision Yahoo API reconciliation is still outstanding. This does not change any October, November or December forecast.
 
 ## What are the limitations and next steps?
 The December predictions are point estimates, not guarantees. The August and October information cutoffs must not be mixed into one experiment. The original archives must remain unchanged. After the **December 7 US market close**, I will need adjusted closing prices for November 30 and all five December target dates, verified against the source, to compute observed RMS and absolute forecast errors. I should preserve source snapshots, timestamps, checksums and any access limitations, and compare the two forecast vintages separately.

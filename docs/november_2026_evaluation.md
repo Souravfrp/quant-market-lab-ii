@@ -1,5 +1,24 @@
 # My November 2026 SPY evaluation — provisional
 
+## Data-access update — 23 November 2026
+
+**I recovered the previously missing USO price dates, but I have not finished the full Yahoo source reconciliation.** USO is part of my **descriptive eight-ETF comparison**, not an extra frozen forecasting target. My original frozen forecasts score **SPY only**.
+
+I copied the following **cent-rounded adjusted closing prices (USD)** from [Stock Analysis's USO historical table](https://stockanalysis.com/etf/uso/history/), which names S&P Global Market Intelligence as its source, and compared the available dates with [Yahoo Finance USO historical listings](https://finance.yahoo.com/quote/USO/history/). I preserved the transcribed series separately in [the November USO input CSV](../results/november_2026/uso_adjusted_close_displayed_2026-11-23.csv).
+
+| 2026 date | USO adjusted close (USD) |
+|---|---:|
+| October 30 — anchor | 168.83 |
+| November 2 | 156.87 |
+| November 3 | 158.17 |
+| November 4 | 145.41 |
+| November 5 | 148.21 |
+| November 6 | 148.41 |
+
+Using the same five-return definition, \(r_t=\ln(A_t/A_{t-1})\) and \(RMS=\sqrt{\sum r_t^2/5}\), I calculate a **USO daily RMS of 5.0808002479%** from these rounded prices. This does not change the separate SPY result of **2.1650%** or the October–November original-model ranking.
+
+**What is still missing?** I could not archive a full-precision Yahoo chart-API response for November, and I have not yet completed the source-hash, full eight-ETF reconciliation and complete repository-test workflow used for October. Webpage prices and independently reproducible arithmetic are useful checks, but they do not establish full provider-source verification. I keep the November report provisional, and I have not changed any frozen forecasts.
+
 ## At a glance: what did I find?
 
 | Measure | October | November |

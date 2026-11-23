@@ -1,5 +1,41 @@
 # Quant Market Lab II — Signal Processing & Prospective Forecasting
 
+## Research results at a glance — updated 23 November 2026
+
+**What I did:** I built and froze forecasts of SPY's five-session daily return RMS, then compared the predictions with later prices. The model predictions were not revised after observing the outcomes.
+
+**What I found:** **October was more accurate than November for all three original models.** I report the larger November errors rather than hiding a negative result.
+
+| Prospective evaluation | October 1–7 | November 2–6 |
+|---|---:|---:|
+| Observed five-session daily RMS | **0.5263%** | **2.1650%** (provisional) |
+| Closest original model | **Rolling-20** | **Constant** |
+| Smallest absolute forecast error | **0.0517 percentage points** | **1.2853 percentage points** |
+| Source status | Full-precision Yahoo SPY reconciliation archived | Cent-rounded prices; full-precision Yahoo API reconciliation pending |
+
+```mermaid
+xychart-beta
+    title "Best original-model forecast error — lower is better"
+    x-axis ["October", "November (provisional)"]
+    y-axis "Absolute error (percentage points)" 0 --> 1.5
+    bar [0.0517, 1.2853]
+```
+
+**How I interpret this:** The November window had much larger daily movements, and every original forecast underestimated their magnitude. The evaluation measures **movement size, not market direction, trading profit or whole-month volatility**. Two prospective windows cannot establish a consistently superior model.
+
+| Research status on 23 November | At a glance |
+|---|---|
+| October | **Fully reconciled** SPY evaluation |
+| November SPY | **Provisional** rounded-price evaluation; full-precision Yahoo API snapshot not archived |
+| November eight-ETF descriptive comparison | **Incomplete reconciliation**; I have recovered the six previously missing USO cent-rounded adjusted closes, but I have not completed a full-precision eight-ETF source audit |
+| December | **Forecasts frozen, evaluation pending** after the December 7 US market close |
+
+**Where to look:** [October evaluation](docs/october_2026_baseline_evaluation.md) · [November evaluation and USO recovery](docs/november_2026_evaluation.md) · [December frozen forecasts](docs/december_2026_forecast_freeze.md) · [USO six-price input (rounded)](results/november_2026/uso_adjusted_close_displayed_2026-11-23.csv)
+
+**Data and integrity note:** The USO dates, October 30 and November 2–6, are now available at cent precision from [Stock Analysis (S&P Global Market Intelligence)](https://stockanalysis.com/etf/uso/history/) and are consistent with accessible [Yahoo Finance historical listings](https://finance.yahoo.com/quote/USO/history/). This is **not** an archived, full-precision Yahoo provider response. The original frozen forecasts and October calculations have not been modified. Below I retain earlier dated research notes as historical records; their statements about which future outcomes were pending reflect what was known when they were written.
+
+---
+
 **Update on 8 October 2026:** I initially expected a new download of the same historical series to reproduce my saved prices. When I compared the files, I observed that some adjusted prices differed between download vintages. This showed me why I need to use the preserved original dataset when reproducing the original experiment. I had kept that CSV locally; its SHA-256 exactly matches the original frozen manifest. The verified-original EWMA run selects the same decays and agrees with the reconstruction at the displayed precision. See [the original-data verification report](docs/original_august_verification.md). Earlier freezes remain unchanged.
 
 
